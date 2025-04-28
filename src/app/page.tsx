@@ -93,8 +93,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section id="support" className={styles['support-section']}>
-        <h1>Поддержка</h1>
+      <section id="contacts" className={styles['support-section']}>
+        <h1>Контакты</h1>
       </section>
     </div>
   )

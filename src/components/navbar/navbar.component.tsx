@@ -7,34 +7,22 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { X, Menu } from 'lucide-react'
 
-const NavLinks = ({ pathname, onClick }: { pathname: string; onClick: () => void }) => {
+const NavLinks = ({ onClick }: { pathname: string; onClick: () => void }) => {
   return (
     <>
       <li>
-        <Link
-          className={pathname === '/projects' ? `${styles['nav-link']} ${styles['active']}` : styles['nav-link']}
-          href="#projects"
-          onClick={onClick}
-        >
+        <Link className={styles['nav-link']} href="#projects" onClick={onClick}>
           Проекты
         </Link>
       </li>
       <li>
-        <Link
-          className={pathname === '/company' ? `${styles['nav-link']} ${styles['active']}` : styles['nav-link']}
-          href="#company"
-          onClick={onClick}
-        >
+        <Link className={styles['nav-link']} href="#company" onClick={onClick}>
           Компания
         </Link>
       </li>
       <li>
-        <Link
-          className={pathname === '/support' ? `${styles['nav-link']} ${styles['active']}` : styles['nav-link']}
-          href="/support"
-          onClick={onClick}
-        >
-          Поддержка
+        <Link className={styles['nav-link']} href="#contacts" onClick={onClick}>
+          Контакты
         </Link>
       </li>
     </>
