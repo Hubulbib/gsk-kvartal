@@ -1,0 +1,132 @@
+.project-offer {
+  border-radius: 10px;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  overflow: hidden;
+}
+
+.project-offer_cover {
+  height: 100%;
+  flex: 0.8;
+  object-fit: cover;
+}
+
+.project-offer_info {
+  padding: 30px;
+  flex: 0.4;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-offer_info * {
+  color: black;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-weight: 300;
+}
+
+.project-offer_content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-offer_content h2 {
+  font-size: 40px;
+}
+.project-offer_content h3 {
+  font-size: 20px;
+}
+.project-offer_content p {
+  font-size: 15px;
+}
+
+.project-offer_pay-sum {
+  font-size: 30px;
+  text-align: end;
+}
+
+.project-offer_flats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-offer_flats div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-offer_flats div:first-child h5,
+.project-offer_flats div:last-child h5 {
+  font-size: 15px;
+}
+
+.project-offer_info button {
+  background-color: var(--primary-color);
+  font-size: 15px;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  padding: 20px;
+  text-transform: uppercase;
+  color: white;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.project-offer_info button:hover {
+  background-color: white;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .project-offer {
+    flex-direction: column;
+  }
+  .project-offer_cover {
+    flex: 1;
+    max-width: 100%;
+  }
+
+  .project-offer_info {
+    padding: 30px;
+    flex: 1;
+    gap: 20px;
+  }
+
+  .project-offer_content h2 {
+    font-size: 50px;
+  }
+  .project-offer_content h3 {
+    font-size: 30px;
+  }
+  .project-offer_content p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-offer {
+    flex-direction: column;
+  }
+  .project-offer_cover {
+    flex: 1;
+    max-width: 100%;
+  }
+
+  .project-offer_info {
+    padding: 30px;
+    flex: 1;
+    gap: 20px;
+  }
+
+  .project-offer_content h2 {
+    font-size: 30px;
+  }
+  .project-offer_content h3 {
+    font-size: 20px;
+  }
+  .project-offer_content p {
+    font-size: 14px;
+  }
+}

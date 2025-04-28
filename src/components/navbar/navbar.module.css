@@ -1,0 +1,135 @@
+.nav {
+  width: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+  border-radius: 10px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  list-style: none;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex: 10;
+}
+
+.nav-burger-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav-menu {
+  display: none;
+  list-style: none;
+  gap: 20px;
+}
+.nav-link {
+  display: flex;
+  border-radius: 15px;
+  color: var(--background);
+  font-family: 'Spectral SC', sans-serif;
+  padding: 10px 30px;
+  transition: 0.2s all;
+  text-transform: uppercase;
+}
+.nav-link .active,
+.nav-link:hover {
+  color: var(--primary-color);
+  background: var(--accent-color);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .nav-link {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  body.lock {
+    overflow: hidden;
+  }
+
+  .nav {
+    position: fixed;
+    height: 100px;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    padding-right: 30px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+  }
+  .nav-logo {
+    margin-top: 10px;
+    z-index: 3;
+  }
+  .nav-logo img {
+    width: 120px;
+    border-radius: 20px;
+  }
+  .nav-items {
+    display: none;
+  }
+  .nav-burger-button {
+    z-index: 3;
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 20px;
+  }
+
+  .nav-menu {
+    padding: 0 10px;
+    overflow: hidden;
+    display: block;
+    position: fixed;
+    padding-top: 150px;
+    top: 0;
+    left: 100%;
+    height: 100%;
+    width: 100%;
+    transition: all 0.2s;
+  }
+  .nav-menu.active {
+    overflow: hidden;
+    left: 0;
+    background-color: var(--primary-color);
+  }
+  .nav-menu .nav-link {
+    margin-bottom: 50px;
+    width: 100%;
+    justify-content: center;
+    color: #fff;
+  }
+  .nav-link .active,
+  .nav-link:hover {
+    color: var(--primary-color);
+    background: var(--accent-color);
+  }
+  .nav-link {
+    width: min-content;
+  }
+  .nav-burger-button.active span {
+    transform: scale(0);
+  }
+  .nav-burger-button::before {
+    transform: rotate(45deg);
+    top: 9px;
+  }
+  .nav-burger-button.active::after {
+    transform: rotate(-45deg);
+    bottom: 9px;
+  }
+}

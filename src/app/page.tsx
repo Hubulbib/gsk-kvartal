@@ -1,103 +1,103 @@
-import Image from "next/image";
+import ProjectCardComponent from 'kvartal/components/project-card/project-card.component'
+import styles from './page.module.css'
+import Image from 'next/image'
+import JKFederalImage from '../../public/jk-federal.jpg'
+import ProjectOfferComponent from 'kvartal/components/project-offer/project-offer.component'
+import { ProjectData } from './project.data'
 
-export default function Home() {
+const Home = () => {
+  const getProjectOffer = () => {
+    const projects = Object.keys(ProjectData)
+    const randomIndex = Math.floor(Math.random() * projects.length)
+    const randomProjectKey = projects[randomIndex]
+
+    return ProjectData[randomProjectKey as keyof typeof ProjectData]
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className={styles['main']}>
+      <section className={styles['hero-section']}>
+        <div className={styles['hero-type-1']}>
+          <Image src="/logo-big.svg" alt="КВАРТАЛ" width={450} height={100} />
+          <h2>Квартиры с видом на культуру</h2>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className={styles['hero-type-2']}>
+          <h2>Вкусные цены</h2>
+          <h5>15%</h5>
+        </div>
+      </section>
+      <section id="projects" className={styles['projects-section']}>
+        <h1>Проекты</h1>
+        <div>
+          <ProjectCardComponent
+            cover={JKFederalImage}
+            title={'ЖК "Федеральный"'}
+            dateKey={'25.10.2025'}
+            forSale={104}
+            paySum={'12 200'}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <ProjectCardComponent
+            cover={JKFederalImage}
+            title={'ЖК "Федеральный"'}
+            dateKey={'25.10.2025'}
+            forSale={104}
+            paySum={'12 200'}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <ProjectCardComponent
+            cover={JKFederalImage}
+            title={'ЖК "Федеральный"'}
+            dateKey={'25.10.2025'}
+            forSale={104}
+            paySum={'12 200'}
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <ProjectCardComponent
+            cover={JKFederalImage}
+            title={'ЖК "Федеральный"'}
+            dateKey={'25.10.2025'}
+            forSale={104}
+            paySum={'12 200'}
+          />
+        </div>
+      </section>
+      <section className={styles['offer-section']}>
+        <h1>Может вас заинтересовать</h1>
+        <ProjectOfferComponent info={getProjectOffer()} />
+      </section>
+      <section id="company" className={styles['company-section']}>
+        <h1>О компании</h1>
+        <div className={styles['company-section_content']}>
+          <Image src={'/logo-orig.png'} alt="" height={300} width={600} />
+          <div>
+            <h2>ГСК "КВАРТАЛ"</h2>
+            <p>
+              Наша строительная компания была создана в 2014 году. На рынке строительства и недвижимости мы представлены
+              белее 10 лет. За это время было реализовано много интересных объектив, а именно жилые многоквартирные
+              дома.
+              <br />
+              <br />
+              Время идет мы расширяемся и совместно с нашими клиентами строим не просто дома, а комплексы домов с
+              развитой инфраструктурой, качественной отделкой, используя современные материалы строительства и отделки.
+              <br />
+              <br />
+              Для удобства наших клиентов у нас предусмотрены различные программы. А именно :{' '}
+              <strong>
+                минимальный первоначальный взнос, беспроцентная рассрочка на весь срок строительства, сжатые сроки сдачи
+                дома оговоренные договором.
+              </strong>
+              <br />
+              <br />
+              Работая совместно с нами, вы получаете добротное, современное жилье за адекватные деньги, с хорошими
+              планировками, большими дворовыми территориями, с резервуарами воды, генераторами электричества. Дома
+              комфорт класса.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="support" className={styles['support-section']}>
+        <h1>Поддержка</h1>
+      </section>
     </div>
-  );
+  )
 }
+
+export default Home
