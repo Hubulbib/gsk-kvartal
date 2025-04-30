@@ -59,16 +59,12 @@ const Home = () => {
           />
         </div>
       </section>
-      <section className={styles['offer-section']}>
-        <h1>Может вас заинтересовать</h1>
-        <ProjectOfferComponent info={getProjectOffer()} />
-      </section>
       <section id="company" className={styles['company-section']}>
         <h1>О компании</h1>
         <div className={styles['company-section_content']}>
           <Image src={'/logo-orig.png'} alt="" height={300} width={600} />
           <div>
-            <h2>ГСК "КВАРТАЛ"</h2>
+            <h2>ГСК &ldquo;КВАРТАЛ&rdquo;</h2>
             <p>
               Наша строительная компания была создана в 2014 году. На рынке строительства и недвижимости мы представлены
               белее 10 лет. За это время было реализовано много интересных объектив, а именно жилые многоквартирные
@@ -93,8 +89,23 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section id="contacts" className={styles['support-section']}>
+      <section className={styles['offer-section']}>
+        <h1>Может вас заинтересовать</h1>
+        <ProjectOfferComponent info={getProjectOffer()} />
+      </section>
+      <section id="contacts" className={styles['contacts-section']}>
         <h1>Контакты</h1>
+        <div className={styles['support-section_content']}>
+          <a href="https://yandex.ru/maps/-/CHfTMIjf" target="_blank" rel="noopener noreferrer">
+            г. Махачкала, ул. Дахадаева, 105
+          </a>
+          <a href="https://wa.me/79317770327" target="_blank" rel="noopener noreferrer">
+            +7 931 777 03 27
+          </a>
+          <a href="https://wa.me/79317770267" target="_blank" rel="noopener noreferrer">
+            +7 931 777 02 67
+          </a>
+        </div>
       </section>
     </div>
   )

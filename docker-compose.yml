@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs
+    image: hubulbib/gsk-kvartal-nextjs:latest
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - nextjs-network
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx
+    image: hubulbib/gsk-kvartal-nginx:latest
+    ports:
+      - '80:80'
+    depends_on:
+      - nextjs
+    networks:
+      - nextjs-network
+
+networks:
+  nextjs-network:
+    driver: bridge
