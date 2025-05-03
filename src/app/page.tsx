@@ -1,7 +1,6 @@
 import ProjectCardComponent from 'kvartal/components/project-card/project-card.component'
 import styles from './page.module.css'
 import Image from 'next/image'
-import JKFederalImage from '../../public/jk-federal.jpg'
 import ProjectOfferComponent from 'kvartal/components/project-offer/project-offer.component'
 import { ProjectData } from './project.data'
 
@@ -22,41 +21,23 @@ const Home = () => {
           <h2>Квартиры с видом на культуру</h2>
         </div>
         <div className={styles['hero-type-2']}>
-          <h2>Вкусные цены</h2>
-          <h5>15%</h5>
+          <h2>Рассрочка</h2>
+          <h5>0%</h5>
         </div>
       </section>
       <section id="projects" className={styles['projects-section']}>
         <h1>Проекты</h1>
         <div>
-          <ProjectCardComponent
-            cover={JKFederalImage}
-            title={'ЖК "Федеральный"'}
-            dateKey={'25.10.2025'}
-            forSale={104}
-            paySum={'12 200'}
-          />
-          <ProjectCardComponent
-            cover={JKFederalImage}
-            title={'ЖК "Федеральный"'}
-            dateKey={'25.10.2025'}
-            forSale={104}
-            paySum={'12 200'}
-          />
-          <ProjectCardComponent
-            cover={JKFederalImage}
-            title={'ЖК "Федеральный"'}
-            dateKey={'25.10.2025'}
-            forSale={104}
-            paySum={'12 200'}
-          />
-          <ProjectCardComponent
-            cover={JKFederalImage}
-            title={'ЖК "Федеральный"'}
-            dateKey={'25.10.2025'}
-            forSale={104}
-            paySum={'12 200'}
-          />
+          {Object.values(ProjectData).map((project, ind) => (
+            <ProjectCardComponent
+              key={ind}
+              cover={project.cover}
+              title={project.name}
+              text1={project.text1}
+              text2={project.text2}
+              paySum={project.paySum}
+            />
+          ))}
         </div>
       </section>
       <section id="company" className={styles['company-section']}>
@@ -64,7 +45,7 @@ const Home = () => {
         <div className={styles['company-section_content']}>
           <Image src={'/logo-orig.png'} alt="" height={300} width={600} />
           <div>
-            <h2>ГСК &ldquo;КВАРТАЛ&rdquo;</h2>
+            <h2>ГСК «КВАРТАЛ»</h2>
             <p>
               Наша строительная компания была создана в 2014 году. На рынке строительства и недвижимости мы представлены
               белее 10 лет. За это время было реализовано много интересных объектив, а именно жилые многоквартирные

@@ -4,14 +4,14 @@ import styles from './project-card.module.css'
 const ProjectCardComponent = ({
   cover,
   title,
-  dateKey,
-  forSale,
+  text1,
+  text2,
   paySum,
 }: {
   cover: StaticImageData
   title: string
-  dateKey: string
-  forSale: number
+  text1: string
+  text2: string
   paySum: string
 }) => {
   return (
@@ -19,8 +19,8 @@ const ProjectCardComponent = ({
       <h2>{title}</h2>
       <div className={styles['project-card_detail']}>
         <div className={styles['project-card_detail_left']}>
-          <h5>Выдача ключей {dateKey}</h5>
-          <h5>{forSale} квартиры в продаже</h5>
+          <h5>{text1}</h5>
+          <h5>{text2}</h5>
         </div>
         <div className={styles['project-card_detail_right']}>
           <h5>от {paySum} Р/МЕС</h5>

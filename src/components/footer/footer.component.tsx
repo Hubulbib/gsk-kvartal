@@ -22,7 +22,7 @@ const FooterComponent = () => {
         </nav>
       </div>
       <div className={styles['footer-down']}>
-        <Link href="/">
+        <Link target="_blank" href="https://vk.com/concept_tag">
           <Image src="/concept.svg" alt="Квартал" width={220} height={90} priority />
         </Link>
         <small role="contentinfo">© Concept. 2025 Все права защищены.</small>
