@@ -16,7 +16,6 @@ services:
       - /app/node_modules
     networks:
       - gsk-kvartal-network
-    command: sh -c "npm run build && npm run start"
 
   nginx:
     build:
