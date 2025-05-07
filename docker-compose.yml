@@ -12,10 +12,10 @@ services:
     environment:
       - NODE_ENV=production
     volumes:
-      - .:/app
       - /app/node_modules
     networks:
-      - nextjs-network
+      - gsk-kvartal-network
+    restart: unless-stopped
 
   nginx:
     build:
@@ -28,8 +28,9 @@ services:
     depends_on:
       - nextjs
     networks:
-      - nextjs-network
+      - gsk-kvartal-network
+    restart: unless-stopped
 
 networks:
-  nextjs-network:
+  gsk-kvartal-network:
     driver: bridge

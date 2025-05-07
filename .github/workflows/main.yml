@@ -50,7 +50,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
-            # Останавливаем и удаляем старые контейнеры (если они существуют)
+            # Останавливаем и удаляем старые контейнеры
             if docker ps -a --format '{{.Names}}' | grep -q 'nextjs'; then
               docker stop nextjs
               docker rm -f nextjs
