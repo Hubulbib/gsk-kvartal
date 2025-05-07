@@ -1,0 +1,71 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master # Запускать pipeline при пуше в ветку main
+  pull_request:
+    branches:
+      - master # Запускать pipeline при пул-реквесте в ветку main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Шаг 1: Проверка кода
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Шаг 2: Настройка Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      # Шаг 3: Логин в Docker Hub (если нужно деплоить образы)
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      # Шаг 4: Сборка и тегирование образов
+      - name: Build and tag Docker images
+        run: |
+          docker compose -f docker-compose.yml build
+          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:latest
+          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:latest
+
+      # Шаг 5: Пуш образов в Docker Hub (опционально)
+      - name: Push Docker images
+        run: |
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:latest
+
+      # Шаг 6: Деплой (пример для сервера через SSH)
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          script: |
+            # Останавливаем и удаляем старые контейнеры (если они существуют)
+            if docker ps -a --format '{{.Names}}' | grep -q 'nextjs'; then
+              docker stop nextjs
+              docker rm -f nextjs
+            fi
+
+            if docker ps -a --format '{{.Names}}' | grep -q 'nginx'; then
+              docker stop nginx
+              docker rm -f nginx
+            fi
+
+            # Создаем сеть (если она еще не существует)
+            if [ -z "$(docker network ls --filter name=^gsk-kvartal-network$ --format={{.Name}})" ]; then
+              docker network create gsk-kvartal-network
+            fi
+
+            # Запускаем новые контейнеры
+            docker run -d --name nextjs --network gsk-kvartal-network -p 3000:3000 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:latest
+            docker run -d --name nginx --network gsk-kvartal-network -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:latest
