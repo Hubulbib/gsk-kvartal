@@ -15,7 +15,7 @@ services:
       - .:/app
       - /app/node_modules
     networks:
-      - nextjs-network
+      - gsk-kvartal-network
     command: sh -c "npm run build && npm run start"
 
   nginx:
