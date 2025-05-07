@@ -50,6 +50,11 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
+            # Клонируем репозиторий
+            mkdir -p /gsk-kvartal
+            cd /gsk-kvartal
+            git clone https://github.com/${{ github.repository }}.git .
+
             # Останавливаем и удаляем старые контейнеры
             if docker ps -a --format '{{.Names}}' | grep -q 'nextjs'; then
               docker stop nextjs
@@ -66,6 +71,8 @@ jobs:
               docker network create gsk-kvartal-network
             fi
 
-            # Запускаем новые контейнеры
-            docker run -d --name nextjs --network gsk-kvartal-network -p 3000:3000 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:latest
-            docker run -d --name nginx --network gsk-kvartal-network -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:latest
+            # Пересобираем и запускаем контейнеры
+            docker compose -f docker-compose.yml up -d --build
+
+            # Очищаем неиспользуемые образы
+            docker image prune -f
