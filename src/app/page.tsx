@@ -18,7 +18,7 @@ const Home = () => {
       <section className={styles['hero-section']}>
         <div className={styles['hero-type-1']}>
           <Image src="/logo-big.svg" alt="КВАРТАЛ" width={450} height={100} />
-          <h2>Квартиры с видом на культуру</h2>
+          <h2>Квартиры с видом на культуру Дагестана</h2>
         </div>
         <div className={styles['hero-type-2']}>
           <h2>Рассрочка</h2>
