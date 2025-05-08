@@ -31,6 +31,8 @@ jobs:
       # Шаг 4: Сборка и тегирование образов
       - name: Build and tag Docker images
         run: |
+          # Очищаем старые образы
+          docker system prune -f
           docker compose -f docker-compose.yml build
           docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:latest
           docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:latest

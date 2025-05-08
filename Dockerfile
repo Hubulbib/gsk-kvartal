@@ -13,8 +13,9 @@ RUN npm install
 # Копируем весь проект
 COPY . .
 
-# Собираем Next.js-приложение
+# Собираем Next.js-приложение с очисткой кэша
 RUN npm run build
+RUN rm -rf .next/cache
 
 # Порт, который будет использовать Next.js
 EXPOSE 3000
