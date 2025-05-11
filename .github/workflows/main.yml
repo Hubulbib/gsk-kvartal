@@ -32,19 +32,19 @@ jobs:
       - name: Build and tag Docker images
         run: |
           # Получаем хэш коммита
-          COMMIT_HASH=$(git rev-parse --short HEAD)
+          echo "COMMIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
           # Очищаем старые образы
           docker system prune -f
           docker compose -f docker-compose.yml build
-          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:$COMMIT_HASH
-          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:$COMMIT_HASH
+          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:${{ env.COMMIT_HASH }}
+          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:${{ env.COMMIT_HASH }}
 
       # Шаг 5: Пуш образов в Docker Hub (опционально)
       - name: Push Docker images
         run: |
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:$COMMIT_HASH
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:$COMMIT_HASH
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:${{ env.COMMIT_HASH }}
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:${{ env.COMMIT_HASH }}
 
       # Шаг 6: Деплой (пример для сервера через SSH)
       - name: Deploy to server
@@ -78,5 +78,5 @@ jobs:
             fi
 
             # Запускаем новые контейнеры
-            docker run -d --name nextjs --network gsk-kvartal-network -p 3000:3000 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:$COMMIT_HASH
-            docker run -d --name nginx --network gsk-kvartal-network -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:$COMMIT_HASH
+            docker run -d --name nextjs --network gsk-kvartal-network -p 3000:3000 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:${{ env.COMMIT_HASH }}
+            docker run -d --name nginx --network gsk-kvartal-network -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:${{ env.COMMIT_HASH }}
