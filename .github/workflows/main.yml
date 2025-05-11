@@ -63,6 +63,13 @@ jobs:
               docker rm -f nginx
             fi
 
+            # Удаляем старые образы
+            docker rmi ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:latest || true
+            docker rmi ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:latest || true
+
+            # Очищаем неиспользуемые образы и контейнеры
+            docker system prune -f
+
             # Создаем сеть (если она еще не существует)
             if [ -z "$(docker network ls --filter name=^gsk-kvartal-network$ --format={{.Name}})" ]; then
               docker network create gsk-kvartal-network
