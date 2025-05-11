@@ -31,17 +31,20 @@ jobs:
       # Шаг 4: Сборка и тегирование образов
       - name: Build and tag Docker images
         run: |
+          # Получаем хэш коммита
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+
           # Очищаем старые образы
           docker system prune -f
           docker compose -f docker-compose.yml build
-          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:latest
-          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:latest
+          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:$COMMIT_HASH
+          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:$COMMIT_HASH
 
       # Шаг 5: Пуш образов в Docker Hub (опционально)
       - name: Push Docker images
         run: |
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:latest
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:$COMMIT_HASH
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:$COMMIT_HASH
 
       # Шаг 6: Деплой (пример для сервера через SSH)
       - name: Deploy to server
@@ -52,6 +55,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
+            # Получаем хэш коммита
+            COMMIT_HASH=$(git rev-parse --short HEAD)
+
             # Останавливаем и удаляем старые контейнеры
             if docker ps -a --format '{{.Names}}' | grep -q 'nextjs'; then
               docker stop nextjs
@@ -63,10 +69,6 @@ jobs:
               docker rm -f nginx
             fi
 
-            # Удаляем старые образы
-            docker rmi ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:latest || true
-            docker rmi ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:latest || true
-
             # Очищаем неиспользуемые образы и контейнеры
             docker system prune -f
 
@@ -76,5 +78,5 @@ jobs:
             fi
 
             # Запускаем новые контейнеры
-            docker run -d --name nextjs --network gsk-kvartal-network -p 3000:3000 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:latest
-            docker run -d --name nginx --network gsk-kvartal-network -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:latest
+            docker run -d --name nextjs --network gsk-kvartal-network -p 3000:3000 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:$COMMIT_HASH
+            docker run -d --name nginx --network gsk-kvartal-network -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:$COMMIT_HASH
