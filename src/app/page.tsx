@@ -30,9 +30,8 @@ const Home = () => {
         <h1>Проекты</h1>
         <div>
           {Object.values(ProjectData).map((project, ind) => (
-            <Link href={project.link}>
+            <Link href={project.link} key={ind}>
               <ProjectCardComponent
-                key={ind}
                 cover={project.cover}
                 title={project.name}
                 text1={project.text1}

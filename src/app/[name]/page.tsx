@@ -1,6 +1,6 @@
 'use client'
 
-import { ProjectData, ProjectType } from '../project.data'
+import { ProjectType } from '../project.data'
 import Image from 'next/image'
 import styles from './page.module.css'
 import { PhotoProvider, PhotoView } from 'react-photo-view'
