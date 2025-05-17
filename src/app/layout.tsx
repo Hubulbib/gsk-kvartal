@@ -3,7 +3,9 @@ import './globals.css'
 import NavBarComponent from 'kvartal/components/navbar/navbar.component'
 import FooterComponent from 'kvartal/components/footer/footer.component'
 import Image from 'next/image'
+
 import 'react-image-gallery/styles/css/image-gallery.css'
+import 'react-photo-view/dist/react-photo-view.css'
 
 export const metadata: Metadata = {
   title: 'Квартал',

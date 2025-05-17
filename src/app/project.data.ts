@@ -35,6 +35,7 @@ import LermontovPlanImage from '../../public/lermantov/lermantov-plan.png'
 
 export const ProjectData = {
   Federal: {
+    link: 'Federalny',
     cover: Federal1Image,
     name: 'ЖК «ФЕДЕРАЛЬНЫЙ»',
     address: 'Махачкала, Хасавюртовское шоссе, 5',
@@ -65,8 +66,15 @@ export const ProjectData = {
       Federal8Image,
       FederalPlanImage,
     ],
+    info: {
+      text1: 'В процессе строительства',
+      text2: '2 автономных лифта',
+      text3: '12 Этажей',
+      text4: 'Подземная парковка',
+    },
   },
   Moskovskyi: {
+    link: 'Moskovsky',
     cover: Moskovsky1Image,
     name: 'ЖК «МОСКОВСКИЙ»',
     address: 'Махачкала, ул. Даганова, 139',
@@ -82,9 +90,16 @@ export const ProjectData = {
       { name: '2-КОМН.', size: 59.74 },
       { name: '3-КОМН.', size: 97.23 },
     ],
-    gallery: [Moskovsky1Image, Moskovsky2Image, Moskovsky3Image, Moskovsky4Image, Moskovsky5Image, MoskovskyPlanImage],
+    gallery: [Moskovsky1Image, Moskovsky2Image, Moskovsky3Image, Moskovsky4Image, MoskovskyPlanImage, Moskovsky5Image],
+    info: {
+      text1: 'В процессе строительства',
+      text2: 'Монолитная основа',
+      text3: 'Развитая инфраструктура',
+      text4: '49 Блоков',
+    },
   },
   Turali: {
+    link: 'Turali',
     cover: Turali1Image,
     name: 'ЖК «Турали»',
     address: 'Махачкала, ул. Металлургов, 44',
@@ -110,17 +125,22 @@ export const ProjectData = {
       Turali8Image,
       TuraliPlanImage,
     ],
+    info: {
+      text1: 'Сдача к 2026 году',
+      text2: 'В процессе строительства',
+      text3: '16 Этажей',
+      text4: '11 Блоков',
+    },
   },
   Lermontov: {
+    link: 'Lermontov',
     cover: Lermontov1Image,
     name: 'ЖК «Лермонтов»',
     address: 'Избербаш, ул. Лермонтова',
     text1: 'Площадь участка - 18029 м2',
     text2: 'Жилая площадь - 15725 м2',
     description: `Комплекс из 11-ти корпусов, 16-ти этажный монолитный дом комфорт класса.`,
-    fullDesc: `Комплекс из 11-ти корпусов, 16-ти этажный монолитный дом комфорт класса.
-    Лифты на генераторах, большая закрытая дворовая территория, благоустроенный двор с детскими и спортивными площадками, спальный район. Удобная транспортная развязка. Есть вся разрешительная документация.
-    РАЗВИТАЯ ИНФРАСТРУКТУРА РЯДОМ: Садик, школа в пешей доступности; Море и песчанные пляжи в 10 минутах езды; Торговые комплексы; Первые этажи-коммерция; В близи комплекса "Духовный центр им. Пророка Исы"; Аллея медиков.`,
+    fullDesc: ``,
     paySum: '70 000',
     flats: [
       { name: 'Студия', size: 34.8 },
@@ -137,6 +157,12 @@ export const ProjectData = {
       Lermontov6Image,
       LermontovPlanImage,
     ],
+    info: {
+      text1: 'Более 450 квартир',
+      text2: 'В процессе строительства',
+      text3: '9 Этажей',
+      text4: '9 Секций',
+    },
   },
 }
 

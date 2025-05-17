@@ -3,6 +3,7 @@ import styles from './page.module.css'
 import Image from 'next/image'
 import ProjectOfferComponent from 'kvartal/components/project-offer/project-offer.component'
 import { ProjectData } from './project.data'
+import Link from 'next/link'
 
 const Home = () => {
   const getProjectOffer = () => {
@@ -29,14 +30,16 @@ const Home = () => {
         <h1>Проекты</h1>
         <div>
           {Object.values(ProjectData).map((project, ind) => (
-            <ProjectCardComponent
-              key={ind}
-              cover={project.cover}
-              title={project.name}
-              text1={project.text1}
-              text2={project.text2}
-              paySum={project.paySum}
-            />
+            <Link href={project.link}>
+              <ProjectCardComponent
+                key={ind}
+                cover={project.cover}
+                title={project.name}
+                text1={project.text1}
+                text2={project.text2}
+                paySum={project.paySum}
+              />
+            </Link>
           ))}
         </div>
       </section>

@@ -1,0 +1,231 @@
+.project-page {
+  padding: 50px 0;
+}
+
+.project-hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  border-radius: 20px;
+}
+
+.project-hero-section h1 {
+  color: var(--accent-color);
+  padding: 0 50px;
+  font-size: 100px;
+}
+
+.project-info {
+  margin: 50px 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  color: var(--primary-color);
+  padding: 30px 0;
+}
+
+.project-info > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 30px;
+}
+
+.project-info > div:first-child {
+  grid-area: 1 / 1 / 2 / 3;
+  border-right: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+.project-info > div:nth-child(2) {
+  flex-direction: column;
+  text-align: center;
+  gap: 0;
+  border-bottom: 2px solid var(--primary-color);
+}
+.project-info > div:nth-child(3) {
+  border-right: 2px solid var(--primary-color);
+}
+.project-info > div:nth-child(4) {
+  border-right: 2px solid var(--primary-color);
+}
+
+.project-info_main {
+  font-size: 6cqb;
+}
+
+.project-info_label {
+  font-size: 18px;
+}
+
+.project-info_sub {
+  font-size: 12px;
+}
+
+.project-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 100px 0;
+}
+.project-desc h2 {
+  font-size: 60px;
+  color: var(--primary-color);
+}
+.project-desc p {
+  color: var(--primary-color);
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 25px;
+  width: 50%;
+  text-align: center;
+  background-color: var(--accent-color);
+}
+
+.project-gallery {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.project-gallery h2 {
+  font-size: 60px;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.project-gallery div {
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: baseline;
+  background-color: var(--accent-color);
+  border-radius: 15px;
+}
+
+.project-gallery div img {
+  padding: 30px;
+  width: 100%;
+  height: fit-content;
+}
+
+.project-gallery div img:nth-child(n) {
+  border-right: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+.project-gallery div img:nth-child(2n) {
+  border-right: none;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .project-hero-section {
+    height: 50vh;
+  }
+  .project-hero-section h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+  }
+
+  .project-info_main {
+    font-size: 3cqb;
+  }
+
+  .project-info_label {
+    font-size: 18px;
+  }
+
+  .project-info_sub {
+    font-size: 12px;
+  }
+
+  .project-gallery {
+    width: 100%;
+  }
+  .project-gallery div {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-hero-section {
+    height: 50vh;
+  }
+  .project-hero-section h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .project-info {
+    margin-top: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+  .project-info > div {
+    border-bottom: 2px solid var(--primary-color);
+  }
+  .project-info > div:first-child {
+    grid-area: 1 / 1 / 1 / 1;
+    border-right: none;
+  }
+  .project-info > div:nth-child(2) {
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+    border-bottom: 2px solid var(--primary-color);
+  }
+  .project-info > div:nth-child(3) {
+    border-right: none;
+  }
+  .project-info > div:nth-child(4) {
+    border-right: none;
+  }
+  .project-info div:last-child {
+    border-bottom: none;
+  }
+
+  .project-info_main {
+    font-size: 3cqb;
+  }
+
+  .project-info_label {
+    font-size: 18px;
+  }
+
+  .project-info_sub {
+    font-size: 12px;
+  }
+
+  .project-desc {
+    padding: 10px 0 30px 0;
+  }
+  .project-desc h2 {
+    font-size: 30px;
+    text-align: center;
+  }
+  .project-desc p {
+    padding: 20px;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .project-gallery {
+    width: 100%;
+  }
+  .project-gallery div {
+    width: 100%;
+  }
+
+  .project-gallery div img {
+    padding: 10px;
+    width: 100%;
+    height: fit-content;
+  }
+}

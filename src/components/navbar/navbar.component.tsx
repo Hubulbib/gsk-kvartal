@@ -11,17 +11,17 @@ const NavLinks = ({ onClick }: { pathname: string; onClick: () => void }) => {
   return (
     <>
       <li>
-        <Link className={styles['nav-link']} href="#projects" onClick={onClick}>
+        <Link className={styles['nav-link']} href="/#projects" onClick={onClick}>
           Проекты
         </Link>
       </li>
       <li>
-        <Link className={styles['nav-link']} href="#company" onClick={onClick}>
+        <Link className={styles['nav-link']} href="/#company" onClick={onClick}>
           Компания
         </Link>
       </li>
       <li>
-        <Link className={styles['nav-link']} href="#contacts" onClick={onClick}>
+        <Link className={styles['nav-link']} href="/#contacts" onClick={onClick}>
           Контакты
         </Link>
       </li>
