@@ -55,6 +55,7 @@ export const ProjectData = {
       { name: '3-КОМН.', size: 97.23 },
     ],
     gallery: [
+      Federal1Image,
       Federal2Image,
       Federal3Image,
       Federal4Image,
@@ -81,7 +82,7 @@ export const ProjectData = {
       { name: '2-КОМН.', size: 59.74 },
       { name: '3-КОМН.', size: 97.23 },
     ],
-    gallery: [Moskovsky2Image, Moskovsky3Image, Moskovsky4Image, Moskovsky5Image, MoskovskyPlanImage],
+    gallery: [Moskovsky1Image, Moskovsky2Image, Moskovsky3Image, Moskovsky4Image, Moskovsky5Image, MoskovskyPlanImage],
   },
   Turali: {
     cover: Turali1Image,
@@ -99,6 +100,7 @@ export const ProjectData = {
       { name: '2-КОМН.', size: 53.79 },
     ],
     gallery: [
+      Turali1Image,
       Turali2Image,
       Turali3Image,
       Turali4Image,
@@ -126,7 +128,15 @@ export const ProjectData = {
       { name: '2-КОМН.', size: 62.71 },
       { name: '3-КОМН.', size: 106.02 },
     ],
-    gallery: [Lermontov2Image, Lermontov3Image, Lermontov4Image, Lermontov5Image, Lermontov6Image, LermontovPlanImage],
+    gallery: [
+      Lermontov1Image,
+      Lermontov2Image,
+      Lermontov3Image,
+      Lermontov4Image,
+      Lermontov5Image,
+      Lermontov6Image,
+      LermontovPlanImage,
+    ],
   },
 }
 

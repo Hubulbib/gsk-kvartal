@@ -157,6 +157,21 @@
   background-position: center;
 }
 
+.support-section_content div {
+  padding: 20px 0;
+  display: flex;
+  gap: 30px;
+}
+.support-section_content div a:first-child::before {
+  background-image: url('../../public/instagram.svg');
+}
+.support-section_content div a:nth-child(2)::before {
+  background-image: url('../../public/vk.svg');
+}
+.support-section_content div a:nth-child(3)::before {
+  background-image: url('../../public/gmail.svg');
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .hero-section {
     flex-direction: column;

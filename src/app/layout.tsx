@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 import NavBarComponent from 'kvartal/components/navbar/navbar.component'
 import FooterComponent from 'kvartal/components/footer/footer.component'
+import Image from 'next/image'
+import 'react-image-gallery/styles/css/image-gallery.css'
 
 export const metadata: Metadata = {
   title: 'Квартал',
@@ -28,6 +30,9 @@ export default function RootLayout({
         <NavBarComponent />
         {children}
         <FooterComponent />
+        <a href="https://wa.me/79317770327" target="_blank">
+          <Image className="action-whatsapp" src={'/whatsapp-orig.svg'} alt="" width={50} height={50} />
+        </a>
       </body>
     </html>
   )

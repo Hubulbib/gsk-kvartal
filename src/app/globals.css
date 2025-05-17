@@ -47,6 +47,15 @@ h3 {
   font-size: 40px;
 }
 
+.action-whatsapp {
+  position: fixed;
+  height: 80px;
+  width: 80px;
+  right: 50px;
+  bottom: 50px;
+  z-index: 1000;
+}
+
 @media (max-width: 768px) {
   body {
     padding: 100px 20px 0;
@@ -54,5 +63,12 @@ h3 {
 
   h1 {
     font-size: 40px;
+  }
+
+  .action-whatsapp {
+    height: 50px;
+    width: 50px;
+    right: 20px;
+    bottom: 40px;
   }
 }

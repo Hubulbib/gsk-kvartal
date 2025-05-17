@@ -1,11 +1,16 @@
+'use client'
+
+import ImageGallery from 'react-image-gallery'
 import styles from './project-offer.module.css'
-import Image from 'next/image'
 import { ProjectType } from '../../app/project.data'
 
 const ProjectOfferComponent = ({ info }: { info: ProjectType }) => {
   return (
     <div className={styles['project-offer']}>
-      <Image className={styles['project-offer_cover']} src={info.cover} alt="" height={400} width={900} />
+      <ImageGallery
+        additionalClass={styles['project-offer_cover']}
+        items={info.gallery.map((el) => ({ original: el.src }))}
+      />
       <div className={styles['project-offer_info']}>
         <div className={styles['project-offer_content']}>
           <h2>{info.name}</h2>

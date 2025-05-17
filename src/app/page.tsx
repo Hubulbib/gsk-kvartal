@@ -83,9 +83,14 @@ const Home = () => {
           <a href="https://wa.me/79317770327" target="_blank" rel="noopener noreferrer">
             +7 931 777 03 27
           </a>
-          <a href="https://wa.me/79317770267" target="_blank" rel="noopener noreferrer">
-            +7 931 777 02 67
+          <a href="https://wa.me/79884431048" target="_blank" rel="noopener noreferrer">
+            +7 988 443 10 48
           </a>
+          <div>
+            <a href="https://www.instagram.com/kvartal_gsk/" target="_blank" rel="noopener noreferrer"></a>
+            <a href="https://vk.com/gsk_kvartal" target="_blank" rel="noopener noreferrer"></a>
+            <a href="mailto:kvartalgsk@gmail.com" target="_blank" rel="noopener noreferrer"></a>
+          </div>
         </div>
       </section>
     </div>
