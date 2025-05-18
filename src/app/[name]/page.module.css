@@ -221,11 +221,16 @@
   }
   .project-gallery div {
     width: 100%;
+    grid-template-columns: repeat(1, 1fr);
   }
 
-  .project-gallery div img {
+  .project-gallery div img:nth-child(n) {
     padding: 10px;
     width: 100%;
     height: fit-content;
+    border-right: none;
+  }
+  .project-gallery div img:last-child {
+    border-bottom: none;
   }
 }
