@@ -3,6 +3,7 @@
 import ImageGallery from 'react-image-gallery'
 import styles from './project-offer.module.css'
 import { ProjectType } from '../../app/project.data'
+import Link from 'next/link'
 
 const ProjectOfferComponent = ({ info }: { info: ProjectType }) => {
   return (
@@ -30,7 +31,9 @@ const ProjectOfferComponent = ({ info }: { info: ProjectType }) => {
             ))}
           </div>
         </div>
-        <button>Подробнее</button>
+        <Link href={`/${info.link}`}>
+          <button>Подробнее</button>
+        </Link>
       </div>
     </div>
   )

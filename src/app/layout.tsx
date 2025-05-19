@@ -8,8 +8,25 @@ import 'react-image-gallery/styles/css/image-gallery.css'
 import 'react-photo-view/dist/react-photo-view.css'
 
 export const metadata: Metadata = {
-  title: 'Квартал',
-  description: 'Квартиры с видом на культуру',
+  title: 'ГСК «Квартал»',
+  description: 'Квартиры с видом на культуру Дагестана',
+  keywords:
+    'квартиры, жилой комплекс, новостройка, недвижимость, Квартал, Махачкала, квартиры в Махачкале, новостройки Махачкала, недвижимость Дагестан, Дагестан, квартиры с видом на море, квартиры в центре Махачкалы, строительная компания Дагестан, Турали, купить квартиру в Махачкале, современные квартиры, жилье премиум класса, новостройки 2024, квартиры с отделкой, жилой комплекс с развитой инфраструктурой, квартиры рядом с морем, квартиры с панорамными окнами',
+  openGraph: {
+    title: 'ГСК «Квартал» - Квартиры с видом на культуру Дагестана',
+    description:
+      'ГСК «Квартал» - современные квартиры с видом на культуру Дагестана. Строим качественное жилье с 2014 года',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'ГСК «Квартал»',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  verification: {
+    yandex: '5a50868d4eb7113c',
+  },
 }
 
 export default function RootLayout({
@@ -20,7 +37,6 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
-        <meta name="yandex-verification" content="5a50868d4eb7113c" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
