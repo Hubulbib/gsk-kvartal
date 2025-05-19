@@ -62,7 +62,13 @@
   font-size: 15px;
 }
 
+.project-offer_info > a {
+  display: flex;
+  justify-content: center;
+}
+
 .project-offer_info button {
+  width: 100%;
   background-color: var(--primary-color);
   font-size: 15px;
   border-radius: 25px;
