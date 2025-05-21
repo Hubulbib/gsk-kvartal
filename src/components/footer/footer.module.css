@@ -63,6 +63,40 @@
   font-size: 20px;
 }
 
+.footer-socials {
+  padding: 0;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  color: var(--accent-color);
+}
+.footer-socials a::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('../../../public/whatsapp.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.footer-socials a:first-child::before {
+  background-image: url('../../../public/instagram.svg');
+}
+.footer-socials a:nth-child(2)::before {
+  background-image: url('../../../public/vk.svg');
+}
+.footer-socials a:nth-child(3)::before {
+  background-image: url('../../../public/gmail.svg');
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .footer-up {
     gap: 10px;
@@ -80,6 +114,9 @@
   }
   .footer-down small {
     font-size: 16px;
+  }
+  .footer-socials {
+    padding: 50px 0;
   }
 }
 
@@ -102,5 +139,8 @@
   .footer-down small {
     font-size: 16px;
     text-align: center;
+  }
+  .footer-socials {
+    padding: 20px 0 50px 0;
   }
 }

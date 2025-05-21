@@ -9,6 +9,11 @@ const FooterComponent = () => {
     <footer className={styles['footer']}>
       <div className={styles['footer-up']}>
         <Image className={styles['footer-up_img']} src="/logo-big.svg" alt="КВАРТАЛ" height={130} width={680} />
+        <div className={styles['footer-socials']}>
+          <a href="https://www.instagram.com/kvartal_gsk/" target="_blank" rel="noopener noreferrer"></a>
+          <a href="https://vk.com/gsk_kvartal" target="_blank" rel="noopener noreferrer"></a>
+          <a href="mailto:kvartalgsk@gmail.com" target="_blank" rel="noopener noreferrer"></a>
+        </div>
         <nav className="footer-nav">
           <Link className={styles['footer-link']} href="#projects">
             Проекты

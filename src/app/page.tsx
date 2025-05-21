@@ -1,9 +1,13 @@
+'use client'
+
 import ProjectCardComponent from 'kvartal/components/project-card/project-card.component'
 import styles from './page.module.css'
 import Image from 'next/image'
 import ProjectOfferComponent from 'kvartal/components/project-offer/project-offer.component'
 import { ProjectData } from './project.data'
 import Link from 'next/link'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { A11y, Autoplay, Navigation, Scrollbar } from 'swiper/modules'
 
 const Home = () => {
   const getProjectOffer = () => {
@@ -17,10 +21,35 @@ const Home = () => {
   return (
     <div className={styles['main']}>
       <section className={styles['hero-section']}>
-        <div className={styles['hero-type-1']}>
-          <Image src="/logo-big.svg" alt="КВАРТАЛ" width={450} height={100} />
-          <h2>Квартиры с видом на культуру Дагестана</h2>
-        </div>
+        <Swiper
+          className={styles['hero-swipe']}
+          navigation
+          scrollbar={{ draggable: true, hide: true }}
+          autoplay={{ delay: 3000 }}
+          modules={[Navigation, Scrollbar, A11y, Autoplay]}
+        >
+          <SwiperSlide>
+            <div className={styles['hero-type-1']}>
+              <Image src="/logo-big.svg" alt="КВАРТАЛ" width={450} height={100} />
+              <h2>Квартиры с видом на культуру Дагестана</h2>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className={styles['hero-type-1-2']}>
+              <div>
+                <h2>О нас пишут в </h2>
+                <Image src="/logo-ria.png" alt="РИА Дагестан" width={200} height={50} />
+              </div>
+              <h3>«Как дагестанская строительная компания «Квартал» меняет правила игры»</h3>
+              <a
+                href="https://riadagestan.ru/news/interview/kak_dagestanskaya_stroitelnaya_kompaniya_kvartal_menyaet_pravila_igry/"
+                target="_blank"
+              >
+                Подробнее
+              </a>
+            </div>
+          </SwiperSlide>
+        </Swiper>
         <div className={styles['hero-type-2']}>
           <h2>Рассрочка</h2>
           <h5>0%</h5>

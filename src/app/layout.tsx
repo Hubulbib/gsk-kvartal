@@ -6,6 +6,11 @@ import Image from 'next/image'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
 import 'react-photo-view/dist/react-photo-view.css'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
+import 'swiper/css/autoplay'
 
 export const metadata: Metadata = {
   title: 'ГСК «Квартал»',

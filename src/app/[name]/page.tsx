@@ -14,7 +14,7 @@ const Project = () => {
 
   useEffect(() => {
     setData(getProjectInfo(name as string))
-  }, [])
+  }, [name])
 
   return (
     <div className={styles['project-page']}>
