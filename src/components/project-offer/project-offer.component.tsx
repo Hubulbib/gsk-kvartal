@@ -21,12 +21,12 @@ const ProjectOfferComponent = ({ info }: { info: ProjectType }) => {
         <h2 className={styles['project-offer_pay-sum']}>от {info.paySum} Р/МЕС</h2>
         <div className={styles['project-offer_flats']}>
           <div>
-            {info.flats.map((el) => (
+            {info.flatsInfo.map((el) => (
               <h5 key={el.name}>{el.name}</h5>
             ))}
           </div>
           <div>
-            {info.flats.map((el) => (
+            {info.flatsInfo.map((el) => (
               <h5 key={el.name}>от {el.size}м</h5>
             ))}
           </div>

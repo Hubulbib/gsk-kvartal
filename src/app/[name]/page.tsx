@@ -49,7 +49,7 @@ const Project = () => {
           <span className={styles['project-info_label']}>{data?.info.text4?.split(' ')[1]}</span>
         </div>
         <div>
-          <span className={styles['project-info_main']}>45</span>
+          <span className={styles['project-info_main']}>{data?.info.text5}</span>
           <span className={styles['project-info_label']}>
             <span className={styles['project-info_sub']}>МЕСЯЦЕВ</span>
             <br />
