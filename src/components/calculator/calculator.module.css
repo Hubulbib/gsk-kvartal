@@ -33,6 +33,7 @@
 }
 
 .calculator_input-list li select {
+  text-align: center;
   width: 50%;
   font-size: 18px;
   font-family: 'Ubuntu Condensed', sans-serif;
