@@ -14,6 +14,7 @@ import 'swiper/css/scrollbar'
 import 'swiper/css/autoplay'
 
 export const metadata: Metadata = {
+  icons: './favicon.ico',
   title: 'ГСК «Квартал»',
   description: 'Квартиры с видом на культуру Дагестана',
   keywords:
