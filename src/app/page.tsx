@@ -8,6 +8,7 @@ import { ProjectData } from './project.data'
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { A11y, Autoplay, Navigation, Scrollbar } from 'swiper/modules'
+import CalculatorComponent from 'kvartal/components/calculator/calculator.component'
 
 const Home = () => {
   const getProjectOffer = () => {
@@ -70,6 +71,10 @@ const Home = () => {
             </Link>
           ))}
         </div>
+      </section>
+      <section id="calculator">
+        <h1>Калькулятор</h1>
+        <CalculatorComponent />
       </section>
       <section id="company" className={styles['company-section']}>
         <h1>О компании</h1>
