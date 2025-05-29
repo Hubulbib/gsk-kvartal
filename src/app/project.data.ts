@@ -7,6 +7,9 @@ import Federal6Image from '../../public/federal/federal-6.png'
 import Federal7Image from '../../public/federal/federal-7.png'
 import Federal8Image from '../../public/federal/federal-8.png'
 import FederalPlanImage from '../../public/federal/federal-plan.png'
+import FederalPlan1Image from '../../public/federal/federal-plan-1.jpeg'
+import FederalPlan2Image from '../../public/federal/federal-plan-2.jpeg'
+import FederalPlan3Image from '../../public/federal/federal-plan-3.jpeg'
 
 import Turali1Image from '../../public//turali/turali-1.png'
 import Turali2Image from '../../public//turali/turali-2.png'
@@ -17,6 +20,15 @@ import Turali6Image from '../../public//turali/turali-6.png'
 import Turali7Image from '../../public//turali/turali-7.png'
 import Turali8Image from '../../public//turali/turali-8.png'
 import TuraliPlanImage from '../../public//turali/turali-plan.png'
+import TuraliPlan0Image from '../../public//turali/turali-plan-0.jpeg'
+import TuraliPlan1Image from '../../public//turali/turali-plan-1.jpeg'
+import TuraliPlan2Image from '../../public//turali/turali-plan-2.jpeg'
+import TuraliPlan3Image from '../../public//turali/turali-plan-3.jpeg'
+import TuraliPlan4Image from '../../public//turali/turali-plan-4.jpeg'
+import TuraliPlan5Image from '../../public//turali/turali-plan-5.jpeg'
+import TuraliPlan6Image from '../../public//turali/turali-plan-6.jpeg'
+import TuraliPlan7Image from '../../public//turali/turali-plan-7.jpeg'
+import TuraliPlan8Image from '../../public//turali/turali-plan-8.jpeg'
 
 import Moskovsky1Image from '../../public/moskovsky/moskovsky-1.png'
 import Moskovsky2Image from '../../public/moskovsky/moskovsky-2.png'
@@ -24,6 +36,10 @@ import Moskovsky3Image from '../../public/moskovsky/moskovsky-3.png'
 import Moskovsky4Image from '../../public/moskovsky/moskovsky-4.png'
 import Moskovsky5Image from '../../public/moskovsky/moskovsky-5.png'
 import MoskovskyPlanImage from '../../public/moskovsky/moskovsky-plan.png'
+import MoskovskyPlan0Image from '../../public/moskovsky/moskovsky-plan-0.jpeg'
+import MoskovskyPlan1Image from '../../public/moskovsky/moskovsky-plan-1.jpeg'
+import MoskovskyPlan2Image from '../../public/moskovsky/moskovsky-plan-2.jpeg'
+import MoskovskyPlan3Image from '../../public/moskovsky/moskovsky-plan-3.jpeg'
 
 import Lermontov1Image from '../../public/lermantov/lermantov-1.png'
 import Lermontov2Image from '../../public/lermantov/lermantov-2.png'
@@ -32,6 +48,13 @@ import Lermontov4Image from '../../public/lermantov/lermantov-4.png'
 import Lermontov5Image from '../../public/lermantov/lermantov-5.png'
 import Lermontov6Image from '../../public/lermantov/lermantov-6.png'
 import LermontovPlanImage from '../../public/lermantov/lermantov-plan.png'
+import LermontovPlan1Image from '../../public/lermantov/lermantov-plan-1.jpeg'
+import LermontovPlan2Image from '../../public/lermantov/lermantov-plan-2.jpeg'
+import LermontovPlan3Image from '../../public/lermantov/lermantov-plan-3.jpeg'
+import LermontovPlan4Image from '../../public/lermantov/lermantov-plan-4.jpeg'
+import LermontovPlan5Image from '../../public/lermantov/lermantov-plan-5.jpeg'
+import LermontovPlan6Image from '../../public/lermantov/lermantov-plan-6.jpeg'
+
 import { Project } from './project.type'
 
 export const ProjectData: Record<string, Project> = {
@@ -65,8 +88,8 @@ export const ProjectData: Record<string, Project> = {
       Federal6Image,
       Federal7Image,
       Federal8Image,
-      FederalPlanImage,
     ],
+    planning: [FederalPlanImage, FederalPlan1Image, FederalPlan2Image, FederalPlan3Image],
     info: {
       text1: 'В процессе строительства',
       text2: '2 автономных лифта',
@@ -105,7 +128,8 @@ export const ProjectData: Record<string, Project> = {
       { name: '2-КОМН.', size: 59.74 },
       { name: '3-КОМН.', size: 97.23 },
     ],
-    gallery: [Moskovsky1Image, Moskovsky2Image, Moskovsky3Image, Moskovsky4Image, MoskovskyPlanImage, Moskovsky5Image],
+    gallery: [Moskovsky1Image, Moskovsky2Image, Moskovsky3Image, Moskovsky4Image, Moskovsky5Image],
+    planning: [MoskovskyPlanImage, MoskovskyPlan0Image, MoskovskyPlan1Image, MoskovskyPlan2Image, MoskovskyPlan3Image],
     info: {
       text1: 'В процессе строительства',
       text2: 'Монолитная основа',
@@ -149,7 +173,18 @@ export const ProjectData: Record<string, Project> = {
       Turali6Image,
       Turali7Image,
       Turali8Image,
+    ],
+    planning: [
       TuraliPlanImage,
+      TuraliPlan0Image,
+      TuraliPlan1Image,
+      TuraliPlan2Image,
+      TuraliPlan3Image,
+      TuraliPlan4Image,
+      TuraliPlan5Image,
+      TuraliPlan6Image,
+      TuraliPlan7Image,
+      TuraliPlan8Image,
     ],
     info: {
       text1: 'Сдача к 2026 году',
@@ -185,14 +220,15 @@ export const ProjectData: Record<string, Project> = {
       { name: '2-КОМН.', size: 62.71 },
       { name: '3-КОМН.', size: 106.02 },
     ],
-    gallery: [
-      Lermontov1Image,
-      Lermontov2Image,
-      Lermontov3Image,
-      Lermontov4Image,
-      Lermontov5Image,
-      Lermontov6Image,
+    gallery: [Lermontov1Image, Lermontov2Image, Lermontov3Image, Lermontov4Image, Lermontov5Image, Lermontov6Image],
+    planning: [
       LermontovPlanImage,
+      LermontovPlan1Image,
+      LermontovPlan2Image,
+      LermontovPlan3Image,
+      LermontovPlan4Image,
+      LermontovPlan5Image,
+      LermontovPlan6Image,
     ],
     info: {
       text1: 'Более 450 квартир',

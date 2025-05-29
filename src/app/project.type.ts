@@ -11,6 +11,7 @@ type BaseProject = {
   fullDesc: string
   paySum: string
   gallery: StaticImageData[]
+  planning: StaticImageData[]
 }
 
 type ProjectInfo = {

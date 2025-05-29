@@ -88,6 +88,17 @@
   background-color: var(--accent-color);
 }
 
+.project-planning {
+  margin: 50px auto;
+}
+
+.project-planning h2 {
+  font-size: 60px;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 .project-gallery {
   margin: 0 auto;
   width: 70%;
@@ -214,6 +225,10 @@
     padding: 20px;
     font-size: 16px;
     width: 100%;
+  }
+
+  .project-planning h2 {
+    font-size: 40px;
   }
 
   .project-gallery {
