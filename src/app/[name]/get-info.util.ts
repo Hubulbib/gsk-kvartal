@@ -1,12 +1,12 @@
 import { ProjectData, ProjectType } from '../project.data'
 import { redirect } from 'next/navigation'
 
-export const getProjectInfo = (name: string): ProjectType => {
+export const getProjectInfo = (name: string) => {
   switch (name) {
     case 'Moskovsky':
-      return ProjectData.Moskovskyi
+      return ProjectData.Moskovsky
     case 'Federalny':
-      return ProjectData.Federal
+      return ProjectData.Federalny
     case 'Turali':
       return ProjectData.Turali
     case 'Lermontov':

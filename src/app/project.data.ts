@@ -32,9 +32,10 @@ import Lermontov4Image from '../../public/lermantov/lermantov-4.png'
 import Lermontov5Image from '../../public/lermantov/lermantov-5.png'
 import Lermontov6Image from '../../public/lermantov/lermantov-6.png'
 import LermontovPlanImage from '../../public/lermantov/lermantov-plan.png'
+import { Project } from './project.type'
 
-export const ProjectData = {
-  Federal: {
+export const ProjectData: Record<string, Project> = {
+  Federalny: {
     link: 'Federalny',
     cover: Federal1Image,
     name: 'ЖК «ФЕДЕРАЛЬНЫЙ»',
@@ -79,15 +80,15 @@ export const ProjectData = {
         63.69, 26.77,
       ],
       payment: {
-        byCash: 65000,
-        byNonCash: 70000,
+        byCash: 70000,
+        byNonCash: [77000, 74000, 72000],
         period: 24,
-        initialPayment: [30, 50],
+        initialPayment: [30, 50, 70],
         exception: {},
       },
     },
   },
-  Moskovskyi: {
+  Moskovsky: {
     link: 'Moskovsky',
     cover: Moskovsky1Image,
     name: 'ЖК «МОСКОВСКИЙ»',
@@ -115,18 +116,18 @@ export const ProjectData = {
     calculator: {
       flats: [56.95, 42.87, 61.81, 42.42, 32.95, 46, 66.61, 52.53, 75.6, 51.94, 37.85, 55.66],
       payment: {
-        byCash: 65000,
-        byNonCash: 70000,
+        byCash: { 68000: [1, 2, 3, 4, 5], 65000: [6, 7, 8] },
+        byNonCash: { 75000: [1, 2, 3, 4, 5], 70000: [6, 7, 8] },
         period: 45,
         initialPayment: [0, 30, 50],
-        exception: {},
+        exception: {}, // По этажам
       },
     },
   },
   Turali: {
     link: 'Turali',
     cover: Turali1Image,
-    name: 'ЖК «Турали»',
+    name: 'ЖК «ТУРАЛИ»',
     address: 'Махачкала, ул. Металлургов, 44',
     text1: 'Площадь участка - 17815 м2',
     text2: 'Жилая площадь - 68396 м2',
@@ -161,17 +162,17 @@ export const ProjectData = {
       flats: [27, 42.11, 44.87, 49.36, 51.54, 53.19, 54.25, 74, 78.15, 79.6, 79.97, 83.16, 85.52, 87.15],
       payment: {
         byCash: 65000,
-        byNonCash: 70000,
+        byNonCash: [75000, 70000],
         period: 36,
         initialPayment: [30, 50],
-        exception: { 74: 55000 },
+        exception: { 74: 55000 }, // По квадратуре
       },
     },
   },
   Lermontov: {
     link: 'Lermontov',
     cover: Lermontov1Image,
-    name: 'ЖК «Лермонтов»',
+    name: 'ЖК «ЛЕРМОНТОВ»',
     address: 'Избербаш, ул. Лермонтова',
     text1: 'Площадь участка - 18029 м2',
     text2: 'Жилая площадь - 15725 м2',
@@ -201,10 +202,13 @@ export const ProjectData = {
       text5: '24',
     },
     calculator: {
-      flats: [],
+      flats: [
+        43.18, 63.39, 64.07, 55.67, 42.51, 77.43, 52.03, 75.51, 77, 51.24, 90.03, 44.87, 34.8, 73.25, 55.58, 81.33,
+        52.79, 39, 96.01, 63.86, 89.65, 78.76, 62.71, 41.15, 106.02, 41.15,
+      ],
       payment: {
-        byCash: 0,
-        byNonCash: 0,
+        byCash: 70000,
+        byNonCash: [80000, 75000],
         period: 24,
         initialPayment: [30, 50],
         exception: {},
@@ -212,5 +216,3 @@ export const ProjectData = {
     },
   },
 }
-
-export type ProjectType = typeof ProjectData.Federal

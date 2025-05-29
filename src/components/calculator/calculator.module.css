@@ -1,0 +1,190 @@
+.calculator {
+  border: 1px solid var(--primary-color);
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.calculator_input-list {
+  width: 50%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-right: 3px solid var(--primary-color);
+}
+
+.calculator_input-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator_input-list li h4 {
+  color: var(--primary-color);
+  width: 50%;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: 'Spectral SC', sans-serif;
+}
+
+.calculator_input-list li select {
+  width: 50%;
+  font-size: 18px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  background: var(--primary-color) url('../../../public/dropdown-arrow.svg') no-repeat right 5px center;
+  border: 1px solid var(--primary-color);
+  padding: 15px 30px 15px 15px; /* Резервируем место под стрелку */
+  border-radius: 5px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--accent-color);
+  overflow: hidden;
+  -webkit-appearance: none; /* Стиль для Safari */
+  -moz-appearance: none; /* Стиль для Firefox */
+  appearance: none; /* Стиль для прочих браузеров */
+}
+.calculator_input-list li select:focus {
+  outline: none;
+}
+.calculator_input-list li > div {
+  width: 50%;
+}
+
+.calculator_input-list li h4:last-child {
+  padding-top: 10px;
+  text-align: center;
+  font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.calculator_result {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 50px;
+  padding: 50px 30px;
+  align-items: center;
+}
+.calculator_result div:first-child {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.calculator_result div:nth-child(2) {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.calculator_result button {
+  grid-area: 3 / 1 / 4 / 3;
+  cursor: pointer;
+  width: 50%;
+  margin: 20px auto 0;
+  padding: 20px;
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  outline: none;
+  border-radius: 15px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+.calculator_result button:hover {
+  color: var(--primary-color);
+  background-color: transparent;
+  border-color: var(--primary-color);
+}
+
+.calculator_result div h5 {
+  color: var(--secondary-color);
+  opacity: 0.8;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.calculator_result div h3 {
+  color: var(--primary-color);
+  font-size: 25px;
+  text-align: center;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .calculator_result div h5 {
+    font-size: 14px;
+  }
+  .calculator_result div h3 {
+    font-size: 20px;
+  }
+  .calculator_input-list li select {
+    font-size: 16px;
+    width: 75%;
+  }
+  .calculator_input-list li h4 {
+    width: 75%;
+  }
+  .calculator_input-list li > div {
+    width: 75%;
+  }
+  .calculator_result button {
+    width: 75%;
+  }
+  .calculator_result {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .calculator {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+  .calculator_input-list {
+    width: 100%;
+    border-right: none;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 50px;
+  }
+  .calculator_input-list li select {
+    font-size: 16px;
+    width: 100%;
+  }
+  .calculator_input-list li h4 {
+    width: 100%;
+  }
+  .calculator_input-list li > div {
+    width: 100%;
+  }
+  .calculator_result {
+    padding: 30px 0;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 30px;
+    align-self: center;
+  }
+  .calculator_result div h5 {
+    font-size: 16px;
+  }
+  .calculator_result div h3 {
+    font-size: 20px;
+  }
+  .calculator_result div:first-child {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .calculator_result div:nth-child(2) {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .calculator_result div:nth-child(3) {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  .calculator_result div:nth-child(4) {
+    grid-area: 4 / 1 / 5 / 2;
+  }
+  .calculator_result button {
+    grid-area: 5 / 1 / 6 / 2;
+    width: 100%;
+    padding: 20px 0;
+  }
+}
