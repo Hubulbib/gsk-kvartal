@@ -16,7 +16,7 @@ export const calculateFlat = (
       pricePerM2 = exception
     } else {
       if (project.link === 'Moskovsky') {
-        for (let [sum, floors] of Object.entries(project.calculator.payment.byCash as Record<number, number[]>)) {
+        for (const [sum, floors] of Object.entries(project.calculator.payment.byCash as Record<number, number[]>)) {
           if (floors.includes(floor!)) pricePerM2 = +sum
         }
       } else {
@@ -29,7 +29,7 @@ export const calculateFlat = (
       pricePerM2 = exception
     } else {
       if (project.link === 'Moskovsky') {
-        for (let [sum, floors] of Object.entries(project.calculator.payment.byNonCash as Record<number, number[]>)) {
+        for (const [sum, floors] of Object.entries(project.calculator.payment.byNonCash as Record<number, number[]>)) {
           if (floors.includes(floor!)) pricePerM2 = +sum
         }
       } else {

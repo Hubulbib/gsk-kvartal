@@ -1,16 +1,16 @@
 'use client'
 
-import { ProjectType } from '../project.data'
 import Image from 'next/image'
 import styles from './page.module.css'
 import { PhotoProvider, PhotoView } from 'react-photo-view'
 import { useEffect, useState } from 'react'
 import { getProjectInfo } from './get-info.util'
 import { useParams } from 'next/navigation'
+import { type Project } from '../project.type'
 
 const Project = () => {
   const { name } = useParams()
-  const [data, setData] = useState<ProjectType>()
+  const [data, setData] = useState<Project>()
 
   useEffect(() => {
     setData(getProjectInfo(name as string))

@@ -2,10 +2,10 @@
 
 import ImageGallery from 'react-image-gallery'
 import styles from './project-offer.module.css'
-import { ProjectType } from '../../app/project.data'
+import { type Project } from '../../app/project.type'
 import Link from 'next/link'
 
-const ProjectOfferComponent = ({ info }: { info: ProjectType }) => {
+const ProjectOfferComponent = ({ info }: { info: Project }) => {
   return (
     <div className={styles['project-offer']}>
       <ImageGallery
