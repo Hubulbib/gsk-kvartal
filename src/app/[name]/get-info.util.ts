@@ -1,4 +1,4 @@
-import { ProjectData, ProjectType } from '../project.data'
+import { ProjectData } from '../project.data'
 import { redirect } from 'next/navigation'
 
 export const getProjectInfo = (name: string) => {
