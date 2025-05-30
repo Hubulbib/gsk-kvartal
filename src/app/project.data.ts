@@ -55,6 +55,17 @@ import LermontovPlan4Image from '../../public/lermantov/lermantov-plan-4.jpeg'
 import LermontovPlan5Image from '../../public/lermantov/lermantov-plan-5.jpeg'
 import LermontovPlan6Image from '../../public/lermantov/lermantov-plan-6.jpeg'
 
+import Broda1Image from '../../public/broda/broda-1.jpg'
+import Broda2Image from '../../public/broda/broda-2.jpg'
+import BrodaPlanImage from '../../public/broda/broda-plan.jpg'
+import BrodaPlan1Image from '../../public/broda/broda-plan-1.jpg'
+import BrodaPlan2Image from '../../public/broda/broda-plan-2.jpg'
+import BrodaPlan3Image from '../../public/broda/broda-plan-3.jpg'
+import BrodaPlan4Image from '../../public/broda/broda-plan-4.jpg'
+import BrodaPlan5Image from '../../public/broda/broda-plan-5.jpg'
+import BrodaPlan6Image from '../../public/broda/broda-plan-6.jpg'
+import BrodaPlan7Image from '../../public/broda/broda-plan-7.jpg'
+
 import { Project } from './project.type'
 
 export const ProjectData: Record<string, Project> = {
@@ -95,7 +106,7 @@ export const ProjectData: Record<string, Project> = {
       text2: '2 автономных лифта',
       text3: '12 Этажей',
       text4: 'Подземная парковка',
-      text5: '24',
+      text5: '30',
     },
     calculator: {
       flats: [
@@ -105,7 +116,7 @@ export const ProjectData: Record<string, Project> = {
       payment: {
         byCash: 70000,
         byNonCash: [77000, 74000, 72000],
-        period: 24,
+        period: 30,
         initialPayment: [30, 50, 70],
         exception: {},
       },
@@ -135,14 +146,14 @@ export const ProjectData: Record<string, Project> = {
       text2: 'Монолитная основа',
       text3: 'Развитая инфраструктура',
       text4: '49 Блоков',
-      text5: '45',
+      text5: '40',
     },
     calculator: {
       flats: [56.95, 42.87, 61.81, 42.42, 32.95, 46, 66.61, 52.53, 75.6, 51.94, 37.85, 55.66],
       payment: {
         byCash: { 68000: [1, 2, 3, 4, 5], 65000: [6, 7, 8] },
         byNonCash: { 75000: [1, 2, 3, 4, 5], 70000: [6, 7, 8] },
-        period: 45,
+        period: 40,
         initialPayment: [0, 30, 50],
         exception: {}, // По этажам
       },
@@ -191,14 +202,14 @@ export const ProjectData: Record<string, Project> = {
       text2: 'В процессе строительства',
       text3: '16 Этажей',
       text4: '11 Блоков',
-      text5: '36',
+      text5: '25',
     },
     calculator: {
       flats: [27, 42.11, 44.87, 49.36, 51.54, 53.19, 54.25, 74, 78.15, 79.6, 79.97, 83.16, 85.52, 87.15],
       payment: {
         byCash: 65000,
         byNonCash: [75000, 70000],
-        period: 36,
+        period: 25,
         initialPayment: [30, 50],
         exception: { 74: 55000 }, // По квадратуре
       },
@@ -235,7 +246,7 @@ export const ProjectData: Record<string, Project> = {
       text2: 'В процессе строительства',
       text3: '8 Этажей',
       text4: '9 Корпусов',
-      text5: '24',
+      text5: '25',
     },
     calculator: {
       flats: [
@@ -245,7 +256,55 @@ export const ProjectData: Record<string, Project> = {
       payment: {
         byCash: 70000,
         byNonCash: [80000, 75000],
-        period: 24,
+        period: 25,
+        initialPayment: [30, 50],
+        exception: {},
+      },
+    },
+  },
+  Broda: {
+    link: 'Broda',
+    cover: Broda1Image,
+    name: 'ЖК «БРОДА»',
+    address: 'Избербаш, ул. Брода, 2',
+    text1: 'Площадь участка - 12150 м2',
+    text2: 'Жилая площадь - 47795 м2',
+    description: `Наш дом находится в тихом спокойном расцветающем районе.`,
+    fullDesc: `Наш дом находится в тихом спокойном расцветающем районе, прямо у нашего комплекса находится маленький сосновый сад, из окон нашего дома с одной стороны открывается вид на Пушкин-Тау, а с другой стороны на город и морской бриз! В шаговой доступности находится Магнит!, кофейни, и ресторан с прекрасной восточной кухней! Всего в 10 минутах находится 12-я школа, в 20-и минутах пешком 1-я школа ! И совсем не далеко Парк Победы !. На против нашего комплекса открывается современное кафе Rostiks!`,
+    paySum: '70 000',
+    flatsInfo: [
+      { name: 'Студия', size: 34.8 },
+      { name: '1-КОМН.', size: 41.15 },
+      { name: '2-КОМН.', size: 62.71 },
+      { name: '3-КОМН.', size: 106.02 },
+    ],
+    gallery: [Broda1Image, Broda2Image],
+    planning: [
+      BrodaPlanImage,
+      BrodaPlan1Image,
+      BrodaPlan2Image,
+      BrodaPlan3Image,
+      BrodaPlan4Image,
+      BrodaPlan5Image,
+      BrodaPlan6Image,
+      BrodaPlan7Image,
+    ],
+    info: {
+      text1: 'Развитая инфраструктура',
+      text2: 'В процессе строительства',
+      text3: '12 Этажей',
+      text4: '11 Корпусов',
+      text5: '40',
+    },
+    calculator: {
+      flats: [
+        70, 74, 52, 49, 28, 34, 46, 45, 44, 35, 57, 55, 53, 54, 73, 56, 41, 38, 40, 66, 51, 43, 50, 51, 43, 59, 64, 30,
+        42, 69,
+      ],
+      payment: {
+        byCash: 55000,
+        byNonCash: [65000, 60000],
+        period: 40,
         initialPayment: [30, 50],
         exception: {},
       },
