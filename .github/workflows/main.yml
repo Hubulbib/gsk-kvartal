@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - master # Запускать pipeline при пуше в ветку main
-  pull_request:
-    branches:
-      - master # Запускать pipeline при пул-реквесте в ветку main
+  # pull_request:
+  #   branches:
+  #     - master # Запускать pipeline при пул-реквесте в ветку main
 
 jobs:
   build-and-deploy:
