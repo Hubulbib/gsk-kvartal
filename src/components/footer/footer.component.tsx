@@ -15,13 +15,16 @@ const FooterComponent = () => {
           <a href="mailto:kvartalgsk@gmail.com" target="_blank" rel="noopener noreferrer"></a>
         </div>
         <nav className="footer-nav">
-          <Link className={styles['footer-link']} href="#projects">
+          <Link className={styles['footer-link']} href="/#projects">
             Проекты
           </Link>
-          <Link className={styles['footer-link']} href="#company">
+          <Link className={styles['footer-link']} href="/#calculator">
+            Калькулятор
+          </Link>
+          <Link className={styles['footer-link']} href="/#company">
             Компания
           </Link>
-          <Link className={styles['footer-link']} href="#contacts">
+          <Link className={styles['footer-link']} href="/#contacts">
             Контакты
           </Link>
         </nav>

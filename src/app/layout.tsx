@@ -4,6 +4,7 @@ import NavBarComponent from 'kvartal/components/navbar/navbar.component'
 import FooterComponent from 'kvartal/components/footer/footer.component'
 import Image from 'next/image'
 
+import 'rc-slider/assets/index.css'
 import 'react-image-gallery/styles/css/image-gallery.css'
 import 'react-photo-view/dist/react-photo-view.css'
 import 'swiper/css'
@@ -13,6 +14,7 @@ import 'swiper/css/scrollbar'
 import 'swiper/css/autoplay'
 
 export const metadata: Metadata = {
+  icons: '/favicon.ico',
   title: 'ГСК «Квартал»',
   description: 'Квартиры с видом на культуру Дагестана',
   keywords:

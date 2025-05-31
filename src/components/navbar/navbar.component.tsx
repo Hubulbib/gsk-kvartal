@@ -16,6 +16,11 @@ const NavLinks = ({ onClick }: { pathname: string; onClick: () => void }) => {
         </Link>
       </li>
       <li>
+        <Link className={styles['nav-link']} href="/#calculator" onClick={onClick}>
+          Калькулятор
+        </Link>
+      </li>
+      <li>
         <Link className={styles['nav-link']} href="/#company" onClick={onClick}>
           Компания
         </Link>
