@@ -62,6 +62,34 @@ const Project = () => {
         <h2>{data?.name}</h2>
         <p>{data?.fullDesc}</p>
       </section>
+      <section className={styles['project-desc']}>
+        <h2>Внутреннее благоустройство</h2>
+        <p>
+          {data?.inner
+            .split('•')
+            .slice(1)
+            .map((el) => (
+              <>
+                • {el}
+                <br />
+              </>
+            ))}
+        </p>
+      </section>
+      <section className={styles['project-desc']}>
+        <h2>Внешняя инфраструктура</h2>
+        <p>
+          {data?.outer
+            .split('•')
+            .slice(1)
+            .map((el) => (
+              <>
+                • {el}
+                <br />
+              </>
+            ))}
+        </p>
+      </section>
       <section className={styles['project-planning']}>
         <h2>Планировки</h2>
         <ImageGallery

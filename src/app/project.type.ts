@@ -9,6 +9,8 @@ type BaseProject = {
   text2: string
   description: string
   fullDesc: string
+  inner: string
+  outer: string
   paySum: string
   gallery: StaticImageData[]
   planning: StaticImageData[]

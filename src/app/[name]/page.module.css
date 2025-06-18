@@ -56,11 +56,11 @@
 }
 
 .project-info_main {
-  font-size: 6cqb;
+  font-size: 3cqb;
 }
 
 .project-info_label {
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .project-info_sub {
@@ -149,7 +149,7 @@
   }
 
   .project-info_label {
-    font-size: 18px;
+    font-size: 1cqb;
   }
 
   .project-info_sub {
