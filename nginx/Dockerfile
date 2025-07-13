@@ -9,3 +9,4 @@ RUN rm -rf /etc/nginx/conf.d/default.conf
 
 # Порт, который будет использовать Nginx
 EXPOSE 80
+EXPOSE 443
