@@ -77,4 +77,4 @@ jobs:
 
             # Запускаем новые контейнеры
             docker run -d --name nextjs --network gsk-kvartal-network -p 3000:3000 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nextjs:latest
-            docker run -d --name nginx --network gsk-kvartal-network -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:latest
+            docker run -d --name nginx --network gsk-kvartal-network -p 80:80 -p 443:443 -v /etc/letsencrypt:/etc/letsencrypt:ro ${{ secrets.DOCKER_HUB_USERNAME }}/gsk-kvartal-nginx:latest
