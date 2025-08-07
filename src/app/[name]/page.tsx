@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import { PhotoProvider, PhotoView } from 'react-photo-view'
 import ImageGallery from 'react-image-gallery'
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { getProjectInfo } from './get-info.util'
 import { useParams } from 'next/navigation'
 import { type Project } from '../project.type'
@@ -68,11 +68,11 @@ const Project = () => {
           {data?.inner
             .split('•')
             .slice(1)
-            .map((el) => (
-              <>
+            .map((el, ind) => (
+              <Fragment key={ind}>
                 • {el}
                 <br />
-              </>
+              </Fragment>
             ))}
         </p>
       </section>
@@ -82,11 +82,11 @@ const Project = () => {
           {data?.outer
             .split('•')
             .slice(1)
-            .map((el) => (
-              <>
+            .map((el, ind) => (
+              <Fragment key={ind}>
                 • {el}
                 <br />
-              </>
+              </Fragment>
             ))}
         </p>
       </section>

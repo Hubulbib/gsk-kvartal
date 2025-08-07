@@ -33,9 +33,13 @@ const CalculatorComponent = ({}) => {
   useEffect(() => {
     setData(ProjectData[project])
     if (project !== ProjectData.Moskovsky.link) {
-      setSquare(data.calculator.flats[0])
+      setSquare(ProjectData[project].calculator.flats[0])
     } else {
-      setSquare(floor === 1 ? data.calculator.flats.slice(0, 6)[0] : data.calculator.flats.slice(6)[0])
+      setSquare(
+        floor === 1
+          ? ProjectData[project].calculator.flats.slice(0, 6)[0]
+          : ProjectData[project].calculator.flats.slice(6)[0],
+      )
     }
   }, [project])
 
@@ -43,6 +47,9 @@ const CalculatorComponent = ({}) => {
     if (payType === PayType.byNonCash) {
       setInitPayPercent(data.calculator.payment.initialPayment[0])
       setPeriod(data.calculator.payment.period)
+    } else {
+      setInitPayPercent(0)
+      setPeriod(0)
     }
   }, [payType])
 
@@ -51,7 +58,6 @@ const CalculatorComponent = ({}) => {
   }, [floor])
 
   useEffect(() => {
-    console.log(calculateFlat(data, square!, payType, period, initPayPercent, floor))
     setResult(calculateFlat(data, square!, payType, period, initPayPercent, floor))
   }, [data, square, payType, period, initPayPercent, floor])
 
