@@ -32,15 +32,15 @@ const CalculatorComponent = ({}) => {
 
   useEffect(() => {
     setData(ProjectData[project])
-    if (project !== ProjectData.Moskovsky.link) {
-      setSquare(ProjectData[project].calculator.flats[0])
-    } else {
-      setSquare(
-        floor === 1
-          ? ProjectData[project].calculator.flats.slice(0, 6)[0]
-          : ProjectData[project].calculator.flats.slice(6)[0],
-      )
-    }
+    // if (project !== ProjectData.Moskovsky.link) {
+    setSquare(ProjectData[project].calculator.flats[0])
+    // } else {
+    //   setSquare(
+    //     floor === 1
+    //       ? ProjectData[project].calculator.flats.slice(0, 6)[0]
+    //       : ProjectData[project].calculator.flats.slice(6)[0],
+    //   )
+    // }
   }, [project])
 
   useEffect(() => {
@@ -58,7 +58,7 @@ const CalculatorComponent = ({}) => {
   }, [floor])
 
   useEffect(() => {
-    setResult(calculateFlat(data, square!, payType, period, initPayPercent, floor))
+    setResult(calculateFlat(data, square!, payType, period, initPayPercent))
   }, [data, square, payType, period, initPayPercent, floor])
 
   return (

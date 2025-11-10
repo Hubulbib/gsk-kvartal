@@ -7,7 +7,7 @@ export const calculateFlat = (
   payType: PayType,
   period: number,
   initPayPercent: number,
-  floor?: number,
+  // floor?: number,
 ): { pricePerM2: number; initSum: number; pricePerMonth: number; totalSum: number } => {
   let pricePerM2 = 0
   if (payType === PayType.byCash) {
@@ -15,28 +15,28 @@ export const calculateFlat = (
     if ((exception = findException(project, square))) {
       pricePerM2 = exception
     } else {
-      if (project.link === 'Moskovsky') {
-        for (const [sum, floors] of Object.entries(project.calculator.payment.byCash as Record<number, number[]>)) {
-          if (floors.includes(floor!)) pricePerM2 = +sum
-        }
-      } else {
-        pricePerM2 = project.calculator.payment.byCash as number
-      }
+      // if (project.link === 'Moskovsky') {
+      //   for (const [sum, floors] of Object.entries(project.calculator.payment.byCash as Record<number, number[]>)) {
+      //     if (floors.includes(floor!)) pricePerM2 = +sum
+      //   }
+      // } else {
+      pricePerM2 = project.calculator.payment.byCash as number
+      // }
     }
   } else {
     let exception = 0
     if ((exception = findException(project, square))) {
       pricePerM2 = exception
     } else {
-      if (project.link === 'Moskovsky') {
-        for (const [sum, floors] of Object.entries(project.calculator.payment.byNonCash as Record<number, number[]>)) {
-          if (floors.includes(floor!)) pricePerM2 = +sum
-        }
-      } else {
-        pricePerM2 = project.calculator.payment.byNonCash[
-          project.calculator.payment.initialPayment.findIndex((el) => el === initPayPercent)
-        ] as number
-      }
+      // if (project.link === 'Moskovsky') {
+      //   for (const [sum, floors] of Object.entries(project.calculator.payment.byNonCash as Record<number, number[]>)) {
+      //     if (floors.includes(floor!)) pricePerM2 = +sum
+      //   }
+      // } else {
+      pricePerM2 = project.calculator.payment.byNonCash[
+        project.calculator.payment.initialPayment.findIndex((el) => el === initPayPercent)
+      ] as number
+      // }
     }
   }
 

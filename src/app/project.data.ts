@@ -170,8 +170,10 @@ export const ProjectData: Record<string, Project> = {
     calculator: {
       flats: [56.95, 42.87, 61.81, 42.42, 32.95, 46, 66.61, 52.53, 75.6, 51.94, 37.85, 55.66],
       payment: {
-        byCash: { 68000: [1, 2, 3, 4, 5], 65000: [6, 7, 8] },
-        byNonCash: { 75000: [1, 2, 3, 4, 5], 70000: [6, 7, 8] },
+        // byCash: { 70000: [1, 2, 3, 4, 5, 6, 7, 8] },
+        // byNonCash: { 90000: [1, 2, 3, 4, 5, 6, 7, 8] },
+        byCash: 70000,
+        byNonCash: [90000, 80000, 80000],
         period: 45,
         initialPayment: [0, 30, 50],
         exception: {}, // По этажам
