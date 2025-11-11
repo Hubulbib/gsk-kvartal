@@ -241,11 +241,11 @@ export const ProjectData: Record<string, Project> = {
     calculator: {
       flats: [27, 42.11, 44.87, 49.36, 51.54, 53.19, 54.25, 74, 78.15, 79.6, 79.97, 83.16, 85.52, 87.15],
       payment: {
-        byCash: 65000,
-        byNonCash: [75000, 70000],
+        byCash: 70000,
+        byNonCash: [80000, 75000],
         period: 25,
         initialPayment: [30, 50],
-        exception: { 74: 55000 }, // По квадратуре
+        exception: {}, // По квадратуре {74: 55000}
       },
     },
   },
