@@ -336,7 +336,7 @@ export const ProjectData: Record<string, Project> = {
     • Парк Победы 
     • Рядом находится МРЭО
     • Удобная транспортная развязка`,
-    paySum: '55 000',
+    paySum: '60 000',
     flatsInfo: [
       { name: 'Студия', size: 34.8 },
       { name: '1-КОМН.', size: 41.15 },
@@ -367,8 +367,8 @@ export const ProjectData: Record<string, Project> = {
         42, 69,
       ],
       payment: {
-        byCash: 55000,
-        byNonCash: [65000, 60000],
+        byCash: 60000,
+        byNonCash: [70000, 65000],
         period: 40,
         initialPayment: [30, 50],
         exception: {},
