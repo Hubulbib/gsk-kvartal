@@ -1,21 +1,20 @@
-# Используем официальный образ Node.js
-FROM node:18-alpine
-
-# Устанавливаем рабочую директорию
+FROM node:alpine as BUILD_IMAGE
 WORKDIR /app
-
-# Копируем package.json и package-lock.json
-COPY package*.json ./
-
-# Устанавливаем зависимости
-RUN npm install
-
-# Копируем весь проект
+COPY package.json package-lock.json ./
+# install dependencies
+RUN npm ci
 COPY . .
-
-# Собираем Next.js-приложение с очисткой кэша
+# build
 RUN npm run build
-RUN rm -rf .next/cache
+# remove dev dependencies
+RUN npm prune --production
+FROM node:alpine
+WORKDIR /app
+# copy from build image
+COPY --from=BUILD_IMAGE /app/package.json ./package.json
+COPY --from=BUILD_IMAGE /app/node_modules ./node_modules
+COPY --from=BUILD_IMAGE /app/.next ./.next
+COPY --from=BUILD_IMAGE /app/public ./public
 
 # Порт, который будет использовать Next.js
 EXPOSE 3000
