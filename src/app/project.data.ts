@@ -124,10 +124,10 @@ export const ProjectData: Record<string, Project> = {
         63.69, 26.77,
       ],
       payment: {
-        byCash: 70000,
-        byNonCash: [77000, 74000, 72000],
-        period: 30,
-        initialPayment: [30, 50, 70],
+        byCash: 75000,
+        byNonCash: [85000, 80000],
+        period: 36,
+        initialPayment: [30, 50],
         exception: {},
       },
     },
@@ -172,10 +172,10 @@ export const ProjectData: Record<string, Project> = {
       payment: {
         // byCash: { 70000: [1, 2, 3, 4, 5, 6, 7, 8] },
         // byNonCash: { 90000: [1, 2, 3, 4, 5, 6, 7, 8] },
-        byCash: 70000,
-        byNonCash: [90000, 80000, 80000],
+        byCash: 75000,
+        byNonCash: [85000, 80000],
         period: 45,
-        initialPayment: [0, 30, 50],
+        initialPayment: [30, 50],
         exception: {}, // По этажам
       },
     },
@@ -241,9 +241,9 @@ export const ProjectData: Record<string, Project> = {
     calculator: {
       flats: [27, 42.11, 44.87, 49.36, 51.54, 53.19, 54.25, 74, 78.15, 79.6, 79.97, 83.16, 85.52, 87.15],
       payment: {
-        byCash: 70000,
-        byNonCash: [80000, 75000],
-        period: 25,
+        byCash: 75000,
+        byNonCash: [85000, 80000],
+        period: 35,
         initialPayment: [30, 50],
         exception: {}, // По квадратуре {74: 55000}
       },
@@ -302,7 +302,7 @@ export const ProjectData: Record<string, Project> = {
       payment: {
         byCash: 70000,
         byNonCash: [80000, 75000],
-        period: 24,
+        period: 18,
         initialPayment: [30, 50],
         exception: {},
       },
@@ -367,8 +367,8 @@ export const ProjectData: Record<string, Project> = {
         42, 69,
       ],
       payment: {
-        byCash: 60000,
-        byNonCash: [70000, 65000],
+        byCash: 65000,
+        byNonCash: [75000, 70000],
         period: 40,
         initialPayment: [30, 50],
         exception: {},
