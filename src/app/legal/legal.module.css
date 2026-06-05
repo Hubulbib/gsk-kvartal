@@ -1,0 +1,56 @@
+.legal {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.legal h1 {
+  font-size: 60px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.content section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.content p,
+.content li {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--secondary-color);
+}
+
+.content h2 {
+  color: var(--primary-color);
+  font-family: 'Spectral SC', sans-serif;
+}
+
+.notice {
+  border-left: 5px solid var(--primary-color);
+  background: rgba(33, 72, 56, 0.08);
+  padding: 20px;
+}
+
+.requisites {
+  border: 2px solid var(--primary-color);
+  border-radius: 20px;
+  padding: 25px;
+}
+
+@media (max-width: 768px) {
+  .legal {
+    padding: 20px 0;
+  }
+
+  .content p,
+  .content li {
+    font-size: 16px;
+  }
+}

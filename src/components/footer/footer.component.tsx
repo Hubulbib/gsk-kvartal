@@ -30,10 +30,24 @@ const FooterComponent = () => {
         </nav>
       </div>
       <div className={styles['footer-down']}>
+        <div>
+          <div className={styles['footer-legal']}>
+            <p>ООО ГСК «КВАРТАЛ»</p>
+            <p>ИНН: 0500031600</p>
+            <p>КПП: 050001001</p>
+            <p>ОГРН: 1250500006316</p>
+
+            <div className={styles['footer-documents']}>
+              <Link href="/terms">Пользовательское соглашение</Link>
+              <Link href="/privacy-policy">Политика конфиденциальности</Link>
+            </div>
+          </div>
+        </div>
+
         <Link target="_blank" href="https://vk.com/concept_tag">
           <Image src="/concept.svg" alt="Квартал" width={220} height={90} priority />
         </Link>
-        <small role="contentinfo">© Concept. 2025 Все права защищены.</small>
+        <small role="contentinfo">© Concept. 2025 Все права защищены.</small>
       </div>
     </footer>
   )

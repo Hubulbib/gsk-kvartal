@@ -161,7 +161,15 @@ const CalculatorComponent = ({}) => {
           <h5>Итоговая сумма</h5>
           <h3>{result.totalSum?.toLocaleString('ru-RU')} ₽</h3>
         </div>
-        <button onClick={() => window.open('https://wa.me/79884431048')}>Узнать подробнее</button>
+        <button
+          onClick={() => window.open('https://wa.me/79884431048?text=Здравствуйте, хочу уточнить информацию по ЖК')}
+        >
+          Получить консультацию
+        </button>
+        <p className={styles['calculator-disclaimer']}>
+          Расчёт носит ознакомительный характер. Актуальную стоимость, наличие квартир и условия приобретения уточняйте
+          у представителей ООО ГСК «КВАРТАЛ».
+        </p>
       </div>
     </div>
   )

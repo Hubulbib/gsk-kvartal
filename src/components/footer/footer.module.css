@@ -97,6 +97,42 @@
   background-image: url('../../../public/gmail.svg');
 }
 
+.footer-legal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-legal p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-documents {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.footer-documents a {
+  color: var(--accent-color);
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 14px;
+  text-decoration: underline;
+  transition: opacity 0.2s;
+}
+
+.footer-documents a:hover {
+  opacity: 0.8;
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .footer-up {
     gap: 10px;
@@ -142,5 +178,15 @@
   }
   .footer-socials {
     padding: 20px 0 50px 0;
+  }
+
+  .footer-documents {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-legal p {
+    text-align: center;
   }
 }

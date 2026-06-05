@@ -54,6 +54,9 @@ export default function RootLayout({
       <body>
         <NavBarComponent />
         {children}
+        <p className="site-disclaimer">
+          Информация на сайте носит справочный характер и не является публичной офертой.
+        </p>
         <FooterComponent />
         <a href="https://wa.me/79317770327" target="_blank">
           <Image className="action-whatsapp" src={'/whatsapp-orig.svg'} alt="" width={50} height={50} />

@@ -74,6 +74,10 @@ const Home = () => {
       </section>
       <section id="calculator">
         <h1>Калькулятор</h1>
+        <p className={styles.disclaimer}>
+          Расчёт является предварительным и носит информационный характер. Не является публичной офертой и не
+          гарантирует заключение договора.
+        </p>
         <CalculatorComponent />
       </section>
       <section id="company" className={styles['company-section']}>
