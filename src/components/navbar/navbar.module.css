@@ -1,25 +1,64 @@
 .nav {
-  width: 100%;
-  background: white;
+  position: sticky;
+  top: 14px;
+  z-index: 200;
+  margin: 14px 18px;
+  background: var(--dark);
+  border-radius: 999px;
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, var(--secondary-color) 0%, var(--primary-color) 100%);
-  border-radius: 10px;
+  justify-content: space-between;
+  padding: 10px 10px 10px 20px;
+  box-shadow: 0 12px 30px rgba(16, 31, 22, 0.25);
 }
 
 .nav-logo {
   display: flex;
   align-items: center;
+  gap: 10px;
+}
+
+.nav-logo img {
+  border-radius: 8px;
+}
+
+.nav-logo span {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  color: var(--bg);
+  font-size: 17px;
+  letter-spacing: 0.5px;
 }
 
 .nav-items {
   display: flex;
-  flex-direction: row;
-  width: 100%;
   list-style: none;
-  justify-content: space-evenly;
-  gap: 20px;
-  flex: 10;
+  gap: 4px;
+  align-items: center;
+}
+
+.nav-link {
+  display: block;
+  color: var(--cream-text);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.nav-link:hover {
+  background: var(--lime);
+  color: var(--dark);
+}
+
+.nav-cta {
+  display: block;
+  background: var(--lime);
+  color: var(--dark);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
 }
 
 .nav-burger-button {
@@ -27,109 +66,66 @@
   background: none;
   border: none;
   cursor: pointer;
+  padding: 6px;
 }
+
 .nav-menu {
-  display: none;
-  list-style: none;
-  gap: 20px;
-}
-.nav-link {
+  position: fixed;
+  inset: 0;
+  background: var(--dark);
+  z-index: 300;
   display: flex;
-  border-radius: 15px;
-  color: var(--background);
-  font-family: 'Spectral SC', sans-serif;
-  padding: 10px 30px;
-  transition: 0.2s all;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 28px;
+  overflow-y: auto;
+}
+
+.nav-menu_close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-menu_label {
+  color: #5f7568;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
   text-transform: uppercase;
-}
-.nav-link .active,
-.nav-link:hover {
-  color: var(--primary-color);
-  background: var(--accent-color);
+  margin-bottom: 18px;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .nav-link {
-    font-size: 13px;
-  }
+.nav-menu_link {
+  display: block;
+  color: var(--bg);
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(34px, 10vw, 52px);
+  font-weight: 800;
+  line-height: 1.15;
+  border-bottom: 1px solid rgba(231, 233, 195, 0.15);
+  padding: 14px 0;
 }
 
-@media (max-width: 768px) {
-  body.lock {
-    overflow: hidden;
-  }
+.nav-menu_cta {
+  margin-top: 28px;
+  align-self: flex-start;
+  background: var(--lime);
+  color: var(--dark);
+  padding: 16px 30px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 15px;
+}
 
-  .nav {
-    position: fixed;
-    height: 100px;
-    top: 0;
-    left: 0;
-    right: 0;
-    border-radius: 0;
-    padding-right: 30px;
-    display: flex;
-    justify-content: space-between;
-    z-index: 1000;
-  }
-  .nav-logo {
-    margin-top: 10px;
-    z-index: 3;
-  }
-  .nav-logo img {
-    width: 120px;
-    border-radius: 20px;
-  }
+@media (max-width: 860px) {
   .nav-items {
     display: none;
   }
   .nav-burger-button {
-    z-index: 3;
     display: block;
-    position: relative;
-    width: 30px;
-    height: 20px;
-  }
-
-  .nav-menu {
-    padding: 0 10px;
-    overflow: hidden;
-    display: block;
-    position: fixed;
-    padding-top: 150px;
-    top: 0;
-    left: 100%;
-    height: 100%;
-    width: 100%;
-    transition: all 0.2s;
-  }
-  .nav-menu.active {
-    overflow: hidden;
-    left: 0;
-    background-color: var(--primary-color);
-  }
-  .nav-menu .nav-link {
-    margin-bottom: 50px;
-    width: 100%;
-    justify-content: center;
-    color: #fff;
-  }
-  .nav-link .active,
-  .nav-link:hover {
-    color: var(--primary-color);
-    background: var(--accent-color);
-  }
-  .nav-link {
-    width: min-content;
-  }
-  .nav-burger-button.active span {
-    transform: scale(0);
-  }
-  .nav-burger-button::before {
-    transform: rotate(45deg);
-    top: 9px;
-  }
-  .nav-burger-button.active::after {
-    transform: rotate(-45deg);
-    bottom: 9px;
   }
 }

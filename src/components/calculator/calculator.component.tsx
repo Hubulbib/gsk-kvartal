@@ -32,15 +32,7 @@ const CalculatorComponent = ({}) => {
 
   useEffect(() => {
     setData(ProjectData[project])
-    // if (project !== ProjectData.Moskovsky.link) {
     setSquare(ProjectData[project].calculator.flats[0])
-    // } else {
-    //   setSquare(
-    //     floor === 1
-    //       ? ProjectData[project].calculator.flats.slice(0, 6)[0]
-    //       : ProjectData[project].calculator.flats.slice(6)[0],
-    //   )
-    // }
   }, [project])
 
   useEffect(() => {
@@ -61,11 +53,13 @@ const CalculatorComponent = ({}) => {
     setResult(calculateFlat(data, square!, payType, period, initPayPercent))
   }, [data, square, payType, period, initPayPercent, floor])
 
+  const isMoskovsky = project === ProjectData.Moskovsky.link
+
   return (
     <div className={styles['calculator']}>
-      <ul className={styles['calculator_input-list']}>
-        <li>
-          <h4>Выберите ЖК:</h4>
+      <div className={styles['calculator_fields']}>
+        <div className={styles['field']}>
+          <label>Жилой комплекс</label>
           <select onChange={(e) => setProject(ProjectData[e.target.value].link)} value={project}>
             {Object.values(ProjectData).map((el) => (
               <option key={el.link} value={el.link}>
@@ -73,55 +67,52 @@ const CalculatorComponent = ({}) => {
               </option>
             ))}
           </select>
-        </li>
+        </div>
 
-        {project === ProjectData.Moskovsky.link ? (
-          <>
-            <li>
-              <h4>Выберите этаж:</h4>
-              <select value={floor} onChange={(e) => setFloor(+e.target.value)}>
-                <option value={1}>1-5</option>
-                <option value={6}>6-8</option>
-              </select>
-            </li>
-            <li>
-              <h4>Выберите площадь:</h4>
-              <select disabled={!floor} value={square} onChange={(e) => setSquare(+e.target.value)}>
-                {(floor < 6 ? data.calculator.flats.slice(0, 6) : data.calculator.flats.slice(6))
-                  .sort((a, b) => a - b)
-                  .map((el) => (
-                    <option key={el} value={el}>
-                      {el}
-                    </option>
-                  ))}
-              </select>
-            </li>
-          </>
-        ) : (
-          <li>
-            <h4>Выберите площадь:</h4>
-            <select value={square} onChange={(e) => setSquare(+e.target.value)}>
-              {Array.from(new Set(data.calculator.flats))
-                .sort((a, b) => a - b)
-                .map((el) => (
-                  <option key={el} value={el}>
-                    {el}
-                  </option>
-                ))}
+        {isMoskovsky && (
+          <div className={styles['field']}>
+            <label>Этаж</label>
+            <select value={floor} onChange={(e) => setFloor(+e.target.value)}>
+              <option value={1}>1–5</option>
+              <option value={6}>6–8</option>
             </select>
-          </li>
+          </div>
         )}
-        <li>
-          <h4>Выберите тип оплаты:</h4>
-          <select value={payType} onChange={(e) => setPayType(e.target.value as PayType)}>
-            <option value={PayType.byCash}>Наличными</option>
-            <option value={PayType.byNonCash}>Рассрочка</option>
+
+        <div className={styles['field']}>
+          <label>Площадь</label>
+          <select value={square} onChange={(e) => setSquare(+e.target.value)}>
+            {Array.from(
+              new Set(isMoskovsky ? (floor === 1 ? data.calculator.flats.slice(0, 6) : data.calculator.flats.slice(6)) : data.calculator.flats),
+            )
+              .sort((a, b) => a - b)
+              .map((el) => (
+                <option key={el} value={el}>
+                  {el} м²
+                </option>
+              ))}
           </select>
-        </li>
-        {payType === 'Рассрочка' ? (
+        </div>
+
+        <div className={styles['field_toggle']}>
+          <button
+            className={payType === PayType.byCash ? styles['toggle-active'] : ''}
+            onClick={() => setPayType(PayType.byCash)}
+          >
+            Наличными
+          </button>
+          <button
+            className={payType === PayType.byNonCash ? styles['toggle-active'] : ''}
+            onClick={() => setPayType(PayType.byNonCash)}
+          >
+            Рассрочка
+          </button>
+        </div>
+
+        {payType === PayType.byNonCash && (
           <>
-            <li>
-              <h4>Выберите первоначальный взнос:</h4>
+            <div className={styles['field']}>
+              <label>Первый взнос</label>
               <select value={initPayPercent} onChange={(e) => setInitPayPercent(+e.target.value)}>
                 {data.calculator.payment.initialPayment.map((el) => (
                   <option key={el} value={el}>
@@ -129,48 +120,51 @@ const CalculatorComponent = ({}) => {
                   </option>
                 ))}
               </select>
-            </li>
-            <li>
-              <h4>Выберите период оплаты:</h4>
+            </div>
+            <div className={styles['field']}>
+              <label>Период: {period} мес.</label>
               <Slider
                 min={1}
                 max={data.calculator.payment.period}
                 step={1}
+                value={period}
                 onChange={(v) => setPeriod(v as number)}
-                defaultValue={data.calculator.payment.period}
               />
-              <h4>{period}</h4>
-            </li>
+            </div>
           </>
-        ) : null}
-      </ul>
+        )}
+      </div>
+
       <div className={styles['calculator_result']}>
-        <div>
-          <h5>Цена за м2</h5>
-          <h3>{result.pricePerM2?.toLocaleString('ru-RU')} ₽</h3>
-        </div>
-        <div>
-          <h5>Первоначальный взнос</h5>
-          <h3>{payType === PayType.byNonCash ? result.initSum?.toLocaleString('ru-RU') : 0} ₽</h3>
-        </div>
-        <div>
-          <h5>Ежемесячный платеж</h5>
-          <h3>{payType === PayType.byNonCash ? result.pricePerMonth?.toLocaleString('ru-RU') : 0} ₽</h3>
-        </div>
-        <div>
-          <h5>Итоговая сумма</h5>
-          <h3>{result.totalSum?.toLocaleString('ru-RU')} ₽</h3>
+        <div className={styles['result_stats']}>
+          <div>
+            <span>Цена за м²</span>
+            <strong>{result.pricePerM2?.toLocaleString('ru-RU')} ₽</strong>
+          </div>
+          <div>
+            <span>Взнос</span>
+            <strong>{(payType === PayType.byNonCash ? result.initSum : 0)?.toLocaleString('ru-RU')} ₽</strong>
+          </div>
+          <div>
+            <span>В месяц</span>
+            <strong>{(payType === PayType.byNonCash ? result.pricePerMonth : 0)?.toLocaleString('ru-RU')} ₽</strong>
+          </div>
+          <div>
+            <span>Итого</span>
+            <strong>{result.totalSum?.toLocaleString('ru-RU')} ₽</strong>
+          </div>
         </div>
         <button
+          className={styles['result_cta']}
           onClick={() => window.open('https://wa.me/79884431048?text=Здравствуйте, хочу уточнить информацию по ЖК')}
         >
-          Получить консультацию
+          Консультация →
         </button>
-        <p className={styles['calculator-disclaimer']}>
-          Расчёт носит ознакомительный характер. Актуальную стоимость, наличие квартир и условия приобретения уточняйте
-          у представителей ООО ГСК «КВАРТАЛ».
-        </p>
       </div>
+      <p className={styles['calculator-disclaimer']}>
+        Расчёт носит ознакомительный характер. Актуальную стоимость, наличие квартир и условия приобретения уточняйте
+        у представителей ООО ГСК «КВАРТАЛ».
+      </p>
     </div>
   )
 }

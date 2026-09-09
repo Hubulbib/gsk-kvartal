@@ -4,51 +4,71 @@ import styles from './footer.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 
+const links = [
+  { href: '/#projects', label: 'Проекты' },
+  { href: '/#calculator', label: 'Калькулятор' },
+  { href: '/#company', label: 'Компания' },
+  { href: '/#contacts', label: 'Контакты' },
+]
+
 const FooterComponent = () => {
   return (
     <footer className={styles['footer']}>
-      <div className={styles['footer-up']}>
-        <Image className={styles['footer-up_img']} src="/logo-big.svg" alt="КВАРТАЛ" height={130} width={680} />
-        <div className={styles['footer-socials']}>
-          <a href="https://www.instagram.com/kvartal_gsk/" target="_blank" rel="noopener noreferrer"></a>
-          <a href="https://vk.com/gsk_kvartal" target="_blank" rel="noopener noreferrer"></a>
-          <a href="mailto:kvartalgsk@gmail.com" target="_blank" rel="noopener noreferrer"></a>
-        </div>
-        <nav className="footer-nav">
-          <Link className={styles['footer-link']} href="/#projects">
-            Проекты
-          </Link>
-          <Link className={styles['footer-link']} href="/#calculator">
-            Калькулятор
-          </Link>
-          <Link className={styles['footer-link']} href="/#company">
-            Компания
-          </Link>
-          <Link className={styles['footer-link']} href="/#contacts">
-            Контакты
-          </Link>
-        </nav>
-      </div>
-      <div className={styles['footer-down']}>
-        <div>
-          <div className={styles['footer-legal']}>
-            <p>ООО ГСК «КВАРТАЛ»</p>
-            <p>ИНН: 0500031600</p>
-            <p>КПП: 050001001</p>
-            <p>ОГРН: 1250500006316</p>
+      <Image src="/logo-big.svg" alt="КВАРТАЛ" height={80} width={300} className={styles['footer-logo']} />
 
-            <div className={styles['footer-documents']}>
-              <Link href="/terms">Пользовательское соглашение</Link>
-              <Link href="/privacy-policy">Политика конфиденциальности</Link>
-            </div>
-          </div>
-        </div>
-
-        <Link target="_blank" href="https://vk.com/concept_tag">
-          <Image src="/concept.svg" alt="Квартал" width={220} height={90} priority />
-        </Link>
-        <small role="contentinfo">© Concept. 2025 Все права защищены.</small>
+      <div className={styles['footer-socials']}>
+        <a
+          className={styles['footer-social']}
+          href="https://www.instagram.com/kvartal_gsk/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <Image src="/instagram.svg" alt="" width={20} height={20} />
+        </a>
+        <a
+          className={styles['footer-social']}
+          href="https://vk.com/gsk_kvartal"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="VK"
+        >
+          <Image src="/vk.svg" alt="" width={20} height={20} />
+        </a>
+        <a
+          className={styles['footer-social']}
+          href="mailto:kvartalgsk@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Email"
+        >
+          <Image src="/gmail.svg" alt="" width={20} height={20} />
+        </a>
       </div>
+
+      <nav className={styles['footer-nav']}>
+        {links.map((l) => (
+          <Link key={l.href} className={styles['footer-link']} href={l.href}>
+            {l.label}
+          </Link>
+        ))}
+      </nav>
+
+      <div className={styles['footer-divider']} />
+
+      <div className={styles['footer-legal']}>
+        <span>ООО ГСК «КВАРТАЛ»</span>
+        <span>ИНН: 0500031600 · КПП: 050001001 · ОГРН: 1250500006316</span>
+        <div className={styles['footer-documents']}>
+          <Link href="/terms">Пользовательское соглашение</Link>
+          <Link href="/privacy-policy">Политика конфиденциальности</Link>
+        </div>
+      </div>
+
+      <p className={styles['footer-disclaimer']}>
+        Информация на сайте носит справочный характер и не является публичной офертой.
+      </p>
+      <small role="contentinfo">© Concept. 2025 Все права защищены.</small>
     </footer>
   )
 }

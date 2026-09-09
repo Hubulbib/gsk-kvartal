@@ -1,39 +1,30 @@
 'use client'
 
-import ImageGallery from 'react-image-gallery'
 import styles from './project-offer.module.css'
 import { type Project } from '../../app/project.type'
 import Link from 'next/link'
 
 const ProjectOfferComponent = ({ info }: { info: Project }) => {
   return (
-    <div className={styles['project-offer']}>
-      <ImageGallery
-        additionalClass={styles['project-offer_cover']}
-        items={info.gallery.map((el) => ({ original: el.src }))}
-      />
-      <div className={styles['project-offer_info']}>
-        <div className={styles['project-offer_content']}>
-          <h2>{info.name}</h2>
-          <h3>{info.address}</h3>
-          <p>{info.description}</p>
-        </div>
-        <h2 className={styles['project-offer_pay-sum']}>от {info.paySum} Р/МЕС</h2>
+    <div className={styles['project-offer']} style={{ backgroundImage: `url(${info.cover.src})` }}>
+      <div className={styles['project-offer_content']}>
+        <h3>{info.name}</h3>
+        <span className={styles['project-offer_address']}>{info.address}</span>
+        <p>{info.description}</p>
         <div className={styles['project-offer_flats']}>
-          <div>
-            {info.flatsInfo.map((el) => (
-              <h5 key={el.name}>{el.name}</h5>
-            ))}
-          </div>
-          <div>
-            {info.flatsInfo.map((el) => (
-              <h5 key={el.name}>от {el.size}м</h5>
-            ))}
-          </div>
+          {info.flatsInfo.map((el) => (
+            <div key={el.name}>
+              <span>{el.name}</span>
+              <span>от {el.size} м²</span>
+            </div>
+          ))}
         </div>
-        <Link href={`/${info.link}`}>
-          <button>Подробнее</button>
-        </Link>
+        <div className={styles['project-offer_footer']}>
+          <span className={styles['project-offer_pay-sum']}>от {info.paySum} ₽/мес</span>
+          <Link href={`/${info.link}`}>
+            <button>Подробнее</button>
+          </Link>
+        </div>
       </div>
     </div>
   )
