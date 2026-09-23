@@ -53,7 +53,7 @@ const ProjectPage = () => {
           </div>
         ))}
         <div className={`${styles['project-info_tile']} ${styles['project-info_tile-accent']}`}>
-          <strong>{data.info.text5}</strong>
+          <strong>{data.calculator.payment.period}</strong>
           <span>мес. рассрочка</span>
         </div>
       </section>
