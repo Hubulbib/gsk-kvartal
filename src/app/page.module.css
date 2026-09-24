@@ -38,11 +38,31 @@
   background: radial-gradient(ellipse at 20% 50%, rgba(18, 53, 36, 0.75), rgba(18, 53, 36, 0.1) 65%);
 }
 
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes heroFadeInFlat {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .hero-video-wrap {
   position: absolute;
   inset: 0;
   z-index: 1;
   background: var(--dark-2);
+  animation: heroFadeInFlat 0.8s ease both;
 }
 .hero-video {
   width: 100%;
@@ -60,6 +80,7 @@
   position: relative;
   z-index: 2;
   max-width: 760px;
+  animation: heroFadeIn 0.7s ease both;
 }
 .hero-brand h1 {
   color: var(--cream-text);
@@ -79,6 +100,7 @@
   max-width: 1000px;
   margin: 0 auto;
   gap: 26px;
+  animation: heroFadeIn 0.7s ease both;
 }
 
 .hero-press_badge {

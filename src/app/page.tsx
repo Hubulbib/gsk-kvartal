@@ -16,11 +16,13 @@ const Home = () => {
   const [offerProject, setOfferProject] = useState(ProjectData[projectKeys[0]])
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    // Slide 2 (video) stays up longer than slide 1 before auto-advancing back.
+    const duration = heroSlide === 'brand' ? 8000 : 13000
+    const timer = setTimeout(() => {
       setHeroSlide((s) => (s === 'brand' ? 'press' : 'brand'))
-    }, 8000)
-    return () => clearInterval(timer)
-  }, [])
+    }, duration)
+    return () => clearTimeout(timer)
+  }, [heroSlide])
 
   // Random pick happens after mount only, so server and client render the same project on first paint.
   useEffect(() => {
