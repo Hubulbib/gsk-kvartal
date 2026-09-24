@@ -1,8 +1,13 @@
+.nav-spacer {
+  height: 84px;
+}
+
 .nav {
-  position: sticky;
+  position: fixed;
   top: 14px;
+  left: 18px;
+  right: 18px;
   z-index: 200;
-  margin: 14px 18px;
   background: var(--dark);
   border-radius: 999px;
   display: flex;
@@ -15,19 +20,6 @@
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-}
-
-.nav-logo img {
-  border-radius: 8px;
-}
-
-.nav-logo span {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  color: var(--bg);
-  font-size: 17px;
-  letter-spacing: 0.5px;
 }
 
 .nav-items {

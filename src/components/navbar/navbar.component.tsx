@@ -28,10 +28,10 @@ const NavBarComponent = () => {
 
   return (
     <>
+      <div className={styles['nav-spacer']} />
       <nav className={styles['nav']}>
         <Link href="/" className={styles['nav-logo']}>
-          <Image src="/logo-mini.svg" alt="Квартал" width={36} height={36} priority />
-          <span>КВАРТАЛ</span>
+          <Image src="/logo-big.svg" alt="Квартал" width={140} height={30} style={{ height: 30, width: 'auto' }} priority />
         </Link>
 
         <ul className={styles['nav-items']}>

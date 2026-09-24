@@ -7,7 +7,7 @@
 /* HERO */
 .hero-section {
   position: relative;
-  margin-top: 30px;
+  margin-top: 0;
   padding-bottom: 80px;
 }
 
@@ -16,13 +16,51 @@
   border-radius: 32px;
   overflow: hidden;
   background: linear-gradient(160deg, var(--dark), var(--dark-2));
-  padding: 70px 60px;
-  min-height: 64vh;
+  padding: 70px 60px 140px;
+  min-height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+.hero-ornament {
+  position: absolute;
+  inset: -60px 0;
+  background-image: url('/ornament.png');
+  background-size: 360px auto;
+  background-repeat: repeat;
+  opacity: 0.85;
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(18, 53, 36, 0.75), rgba(18, 53, 36, 0.1) 65%);
+}
+
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--dark-2);
+}
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--dark);
+}
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 31, 20, 0.55) 0%, rgba(10, 31, 20, 0.25) 45%, rgba(10, 31, 20, 0.85) 100%);
+}
+
+.hero-brand {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
 .hero-brand h1 {
   color: var(--cream-text);
   font-size: clamp(34px, 6vw, 58px);
@@ -32,63 +70,139 @@
 }
 
 .hero-press {
-  max-width: 700px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 26px;
 }
 
-.hero-press_label {
+.hero-press_badge {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
+  gap: 12px;
+  padding: 8px 10px 8px 18px;
+  border-radius: 999px;
+  background: rgba(246, 242, 228, 0.12);
+  border: 1px solid rgba(246, 242, 228, 0.25);
 }
-.hero-press_label span {
-  color: var(--cream-text);
-  font-family: 'Syne', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
+.hero-press_badge > span:first-child {
+  color: var(--bg);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
-.hero-press_label img {
-  border-radius: 6px;
+.hero-press_badge-ria {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg);
+  color: var(--dark);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: 'Onest', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.hero-press_badge-ria b {
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 
 .hero-press h2 {
+  font-family: 'Syne', sans-serif;
   color: var(--bg);
-  font-size: clamp(22px, 3.2vw, 30px);
-  font-weight: 600;
-  line-height: 1.35;
-  margin: 0 0 22px;
+  font-size: clamp(38px, 7vw, 92px);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+  margin: 0;
 }
 
-.hero-press a {
+.hero-press p {
+  color: #dfe6d8;
+  font-size: clamp(15px, 1.6vw, 19px);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 620px;
+}
+
+.hero-press_actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 6px;
+}
+.hero-press_cta {
   display: inline-block;
   background: var(--lime);
   color: var(--dark);
-  padding: 14px 28px;
-  border-radius: 14px;
+  padding: 16px 30px;
+  border-radius: 999px;
   font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
   transition: background 0.2s;
 }
-.hero-press a:hover {
+.hero-press_cta:hover {
   background: var(--cream-text);
+}
+.hero-press_secondary {
+  display: inline-block;
+  color: var(--bg);
+  padding: 16px 30px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+  border: 1px solid rgba(246, 242, 228, 0.45);
+  transition: background 0.2s;
+}
+.hero-press_secondary:hover {
+  background: rgba(246, 242, 228, 0.12);
 }
 
 .hero-dots {
   position: absolute;
-  bottom: 30px;
-  right: 60px;
+  z-index: 3;
+  top: 34px;
+  right: 40px;
   display: flex;
-  gap: 10px;
+  gap: 22px;
 }
 .hero-dots button {
-  width: 30px;
-  height: 5px;
-  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
+}
+.hero-dot-bar {
+  width: 54px;
+  height: 3px;
+  border-radius: 3px;
   background: rgba(231, 233, 195, 0.35);
 }
-.hero-dots button.dot-active {
+.hero-dots button.dot-active .hero-dot-bar {
   background: var(--lime);
+}
+.hero-dot-label {
+  color: var(--cream-text);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .hero-badge {
@@ -202,14 +316,87 @@
   grid-template-columns: 0.9fr 1.3fr;
   align-items: center;
 }
-.company-image {
+.company-plaque {
   position: relative;
   z-index: 2;
   transform: rotate(-2deg);
-  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0d2a1b;
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 30px 60px rgba(16, 31, 22, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px;
+}
+.company-plaque_ornament {
+  position: absolute;
+  inset: 0;
+  background-image: url('/ornament.png');
+  background-size: 240px auto;
+  opacity: 0.9;
+}
+.company-plaque_shade {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 42%, rgba(13, 42, 27, 0.95) 0%, rgba(13, 42, 27, 0.55) 45%, rgba(13, 42, 27, 0.2) 80%);
+}
+.company-plaque_frame {
+  position: absolute;
+  inset: 14px;
+  border: 1.5px solid rgba(231, 233, 195, 0.35);
+  border-radius: 14px;
+  pointer-events: none;
+}
+.company-plaque_kicker {
+  position: relative;
+  color: var(--lime);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.company-plaque_logo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+.company-plaque_logo img {
+  width: 86%;
   height: auto;
-  border-radius: 20px;
-  box-shadow: 0 30px 60px rgba(16, 31, 22, 0.25);
+}
+.company-plaque_logo span {
+  color: var(--cream-text);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.company-plaque_stats {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid rgba(231, 233, 195, 0.25);
+  padding-top: 18px;
+}
+.company-plaque_stats strong {
+  display: block;
+  font-family: 'Onest', sans-serif;
+  color: var(--bg);
+  font-size: 30px;
+  font-weight: 700;
+}
+.company-plaque_stats span {
+  color: var(--label);
+  font-size: 12px;
+}
+.company-plaque_stats-right {
+  text-align: right;
 }
 .company-card {
   background: var(--dark);
@@ -251,6 +438,7 @@
 .contacts-grid {
   display: flex;
   flex-wrap: wrap;
+  align-items: stretch;
   gap: 14px;
 }
 .contact-tile {
@@ -274,10 +462,12 @@
 .contact-socials {
   display: flex;
   gap: 12px;
+  align-items: stretch;
 }
 .contact-socials a {
   width: 80px;
-  height: 80px;
+  min-height: 80px;
+  align-self: stretch;
   border-radius: 20px;
   background: var(--dark-soft);
   display: flex;
@@ -318,10 +508,15 @@
 
 @media (max-width: 560px) {
   .hero-card {
-    padding: 40px 26px;
+    padding: 40px 26px 120px;
   }
   .hero-dots {
+    top: 24px;
     right: 26px;
+    gap: 14px;
+  }
+  .hero-dot-label {
+    display: none;
   }
   .hero-badge {
     width: 130px;

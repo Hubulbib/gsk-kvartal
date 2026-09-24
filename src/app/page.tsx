@@ -18,7 +18,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setHeroSlide((s) => (s === 'brand' ? 'press' : 'brand'))
-    }, 4500)
+    }, 8000)
     return () => clearInterval(timer)
   }, [])
 
@@ -32,6 +32,23 @@ const Home = () => {
     <div className={styles['main']}>
       <section className={styles['hero-section']}>
         <div className={styles['hero-card']}>
+          <div className={styles['hero-ornament']} />
+          <div className={styles['hero-vignette']} />
+          {heroSlide === 'press' && (
+            <div className={styles['hero-video-wrap']}>
+              {/* Видео: положите файл в public/about-video.mp4 */}
+              <video
+                src="/about-video.mp4"
+                poster="/ornament.png"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className={styles['hero-video']}
+              />
+              <div className={styles['hero-video-overlay']} />
+            </div>
+          )}
           {heroSlide === 'brand' ? (
             <div className={styles['hero-brand']}>
               <Image src="/logo-big.svg" alt="КВАРТАЛ" width={280} height={70} />
@@ -43,31 +60,44 @@ const Home = () => {
             </div>
           ) : (
             <div className={styles['hero-press']}>
-              <div className={styles['hero-press_label']}>
-                <span>О нас пишут в</span>
-                <Image src="/logo-ria.png" alt="РИА Дагестан" width={140} height={36} />
+              <div className={styles['hero-press_badge']}>
+                <span>О нас пишут</span>
+                <span className={styles['hero-press_badge-ria']}>
+                  <b>РИА</b> Дагестан
+                </span>
               </div>
-              <h2>«Как дагестанская строительная компания «Квартал» меняет правила игры»</h2>
-              <a
-                href="https://riadagestan.ru/news/interview/kak_dagestanskaya_stroitelnaya_kompaniya_kvartal_menyaet_pravila_igry/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Подробнее →
-              </a>
+              <h2>«Квартал» меняет правила игры</h2>
+              <p>Как дагестанская строительная компания «Квартал» меняет правила игры — интервью РИА «Дагестан»</p>
+              <div className={styles['hero-press_actions']}>
+                <a
+                  href="https://riadagestan.ru/news/interview/kak_dagestanskaya_stroitelnaya_kompaniya_kvartal_menyaet_pravila_igry/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles['hero-press_cta']}
+                >
+                  Читать интервью →
+                </a>
+                <a href="#projects" className={styles['hero-press_secondary']}>
+                  Смотреть проекты
+                </a>
+              </div>
             </div>
           )}
           <div className={styles['hero-dots']}>
             <button
               className={heroSlide === 'brand' ? styles['dot-active'] : ''}
               onClick={() => setHeroSlide('brand')}
-              aria-label="Слайд 1"
-            />
+            >
+              <span className={styles['hero-dot-bar']} />
+              <span className={styles['hero-dot-label']}>01 · КВАРТАЛ</span>
+            </button>
             <button
               className={heroSlide === 'press' ? styles['dot-active'] : ''}
               onClick={() => setHeroSlide('press')}
-              aria-label="Слайд 2"
-            />
+            >
+              <span className={styles['hero-dot-bar']} />
+              <span className={styles['hero-dot-label']}>02 · О НАС ПИШУТ</span>
+            </button>
           </div>
         </div>
         <div className={styles['hero-badge']}>
@@ -107,7 +137,26 @@ const Home = () => {
 
       <section id="company" className={styles['company-section']}>
         <div className={styles['company-section_content']}>
-          <Image src="/logo-orig.png" alt="ГСК Квартал" height={400} width={500} className={styles['company-image']} />
+          <div className={styles['company-plaque']}>
+            <div className={styles['company-plaque_ornament']} />
+            <div className={styles['company-plaque_shade']} />
+            <div className={styles['company-plaque_frame']} />
+            <span className={styles['company-plaque_kicker']}>Республика Дагестан</span>
+            <div className={styles['company-plaque_logo']}>
+              <Image src="/logo-big.svg" alt="КВАРТАЛ" width={280} height={70} />
+              <span>группа строительных компаний</span>
+            </div>
+            <div className={styles['company-plaque_stats']}>
+              <div>
+                <strong>10+</strong>
+                <span>лет на рынке</span>
+              </div>
+              <div className={styles['company-plaque_stats-right']}>
+                <strong>3</strong>
+                <span>дома сданы и заселены</span>
+              </div>
+            </div>
+          </div>
           <div className={styles['company-card']}>
             <h3>ГСК «КВАРТАЛ»</h3>
             <p>
