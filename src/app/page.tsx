@@ -52,7 +52,7 @@ const Home = () => {
             </div>
           )}
           {heroSlide === 'brand' ? (
-            <div className={styles['hero-brand']}>
+            <div key="brand" className={styles['hero-brand']}>
               <Image src="/logo-big.svg" alt="КВАРТАЛ" width={280} height={70} />
               <h1>
                 Квартиры с видом
@@ -61,7 +61,7 @@ const Home = () => {
               </h1>
             </div>
           ) : (
-            <div className={styles['hero-press']}>
+            <div key="press" className={styles['hero-press']}>
               <div className={styles['hero-press_badge']}>
                 <span>О нас пишут</span>
                 <span className={styles['hero-press_badge-ria']}>
