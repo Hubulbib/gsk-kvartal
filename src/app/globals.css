@@ -37,6 +37,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.lock {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

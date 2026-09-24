@@ -13,17 +13,31 @@ const links = [
   { href: '/#contacts', label: 'Контакты' },
 ]
 
+const lockScroll = () => {
+  document.body.style.top = `-${window.scrollY}px`
+  document.body.classList.add('lock')
+}
+
+const unlockScroll = () => {
+  const scrollY = document.body.style.top
+  document.body.classList.remove('lock')
+  document.body.style.top = ''
+  window.scrollTo(0, -parseInt(scrollY || '0'))
+}
+
 const NavBarComponent = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev)
-    document.body.classList.toggle('lock')
+    const next = !isOpen
+    if (next) lockScroll()
+    else unlockScroll()
+    setIsOpen(next)
   }
 
   const closeMenu = () => {
     setIsOpen(false)
-    document.body.classList.remove('lock')
+    unlockScroll()
   }
 
   return (
