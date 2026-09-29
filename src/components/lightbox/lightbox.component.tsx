@@ -19,7 +19,7 @@ const LightboxComponent = ({
   return (
     <div className={styles['lightbox']} onClick={onClose}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={images[index]} alt="" onClick={(e) => e.stopPropagation()} />
+      <img key={images[index]} src={images[index]} alt="" onClick={(e) => e.stopPropagation()} />
       <button className={styles['lightbox_close']} onClick={onClose} aria-label="Закрыть">
         <X size={32} />
       </button>

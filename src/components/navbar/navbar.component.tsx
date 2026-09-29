@@ -68,27 +68,29 @@ const NavBarComponent = () => {
         </button>
       </nav>
 
-      {isOpen && (
-        <div className={styles['nav-menu']}>
-          <button className={styles['nav-menu_close']} onClick={closeMenu} aria-label="Закрыть">
-            <X color="#f6f2e4" size={30} />
-          </button>
-          <span className={styles['nav-menu_label']}>Меню</span>
-          {links.map((l) => (
-            <Link key={l.href} className={styles['nav-menu_link']} href={l.href} onClick={closeMenu}>
-              {l.label}
-            </Link>
-          ))}
-          <a
-            className={styles['nav-menu_cta']}
-            href="https://wa.me/79884431048"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Написать в WhatsApp →
-          </a>
-        </div>
-      )}
+      <div
+        className={`${styles['nav-menu']} ${isOpen ? styles['nav-menu_open'] : ''}`}
+        aria-hidden={!isOpen}
+        inert={!isOpen || undefined}
+      >
+        <button className={styles['nav-menu_close']} onClick={closeMenu} aria-label="Закрыть">
+          <X color="#f6f2e4" size={30} />
+        </button>
+        <span className={styles['nav-menu_label']}>Меню</span>
+        {links.map((l) => (
+          <Link key={l.href} className={styles['nav-menu_link']} href={l.href} onClick={closeMenu}>
+            {l.label}
+          </Link>
+        ))}
+        <a
+          className={styles['nav-menu_cta']}
+          href="https://wa.me/79884431048"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Написать в WhatsApp →
+        </a>
+      </div>
     </>
   )
 }

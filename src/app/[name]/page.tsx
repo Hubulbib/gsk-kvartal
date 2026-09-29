@@ -8,6 +8,7 @@ import { useParams, useRouter } from 'next/navigation'
 import { type Project } from '../project.type'
 import { Check, ArrowLeft } from 'lucide-react'
 import LightboxComponent from 'kvartal/components/lightbox/lightbox.component'
+import { useReveal } from 'kvartal/hooks/use-reveal'
 
 const bulletList = (text?: string) =>
   text
@@ -28,6 +29,12 @@ const ProjectPage = () => {
     setData(getProjectInfo(name as string))
   }, [name])
 
+  const infoReveal = useReveal<HTMLElement>()
+  const descReveal = useReveal<HTMLElement>()
+  const amenitiesReveal = useReveal<HTMLElement>()
+  const planningReveal = useReveal<HTMLElement>()
+  const galleryReveal = useReveal<HTMLElement>()
+
   if (!data) return null
 
   const descParas = data.fullDesc.split('\n').filter(Boolean)
@@ -46,7 +53,10 @@ const ProjectPage = () => {
         <span>{data.address}</span>
       </section>
 
-      <section className={styles['project-info']}>
+      <section
+        ref={infoReveal.ref}
+        className={`${styles['project-info']} reveal ${infoReveal.revealed ? 'revealed' : ''}`}
+      >
         {[data.info.text1, data.info.text2, data.info.text3, data.info.text4].map((text, i) => (
           <div key={i} className={styles['project-info_tile']}>
             <span>{text}</span>
@@ -58,7 +68,10 @@ const ProjectPage = () => {
         </div>
       </section>
 
-      <section className={styles['project-desc']}>
+      <section
+        ref={descReveal.ref}
+        className={`${styles['project-desc']} reveal ${descReveal.revealed ? 'revealed' : ''}`}
+      >
         <h2>{data.name}</h2>
         <div>
           {descParas.map((para, i) => (
@@ -67,7 +80,10 @@ const ProjectPage = () => {
         </div>
       </section>
 
-      <section className={styles['project-amenities']}>
+      <section
+        ref={amenitiesReveal.ref}
+        className={`${styles['project-amenities']} reveal ${amenitiesReveal.revealed ? 'revealed' : ''}`}
+      >
         <div className={styles['amenities-card']}>
           <h3>Внутреннее благоустройство</h3>
           {innerList.map((it, i) => (
@@ -88,13 +104,14 @@ const ProjectPage = () => {
         </div>
       </section>
 
-      <section className={styles['media-section']}>
+      <section ref={planningReveal.ref} className={styles['media-section']}>
         <h2>Планировки</h2>
         <div className={styles['media-grid']}>
           {data.planning.map((img, i) => (
             <button
               key={i}
-              className={styles['media-grid_item']}
+              className={`${styles['media-grid_item']} reveal ${planningReveal.revealed ? 'revealed' : ''}`}
+              style={{ transitionDelay: planningReveal.revealed ? `${i * 60}ms` : '0ms' }}
               onClick={() => setLightbox({ images: data.planning.map((p) => p.src), index: i })}
             >
               <Image src={img} alt="" fill sizes="(max-width: 768px) 50vw, 25vw" style={{ objectFit: 'cover' }} />
@@ -103,13 +120,14 @@ const ProjectPage = () => {
         </div>
       </section>
 
-      <section className={styles['media-section']}>
+      <section ref={galleryReveal.ref} className={styles['media-section']}>
         <h2>Галерея</h2>
         <div className={styles['media-grid']}>
           {data.gallery.map((img, i) => (
             <button
               key={i}
-              className={styles['media-grid_item']}
+              className={`${styles['media-grid_item']} reveal ${galleryReveal.revealed ? 'revealed' : ''}`}
+              style={{ transitionDelay: galleryReveal.revealed ? `${i * 60}ms` : '0ms' }}
               onClick={() => setLightbox({ images: data.gallery.map((g) => g.src), index: i })}
             >
               <Image src={img} alt="" fill sizes="(max-width: 768px) 50vw, 25vw" style={{ objectFit: 'cover' }} />

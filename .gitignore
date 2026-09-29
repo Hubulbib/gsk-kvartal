@@ -42,3 +42,8 @@ yarn-error.log*
 next-env.d.ts
 
 .github
+
+# Claude Code local skill cache
+/.agents/
+/.claude/skills/
+skills-lock.json

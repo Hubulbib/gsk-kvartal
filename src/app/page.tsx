@@ -8,6 +8,7 @@ import { ProjectData } from './project.data'
 import Link from 'next/link'
 import CalculatorComponent from 'kvartal/components/calculator/calculator.component'
 import { useEffect, useState } from 'react'
+import { useReveal } from 'kvartal/hooks/use-reveal'
 
 const projectKeys = Object.keys(ProjectData)
 
@@ -37,6 +38,12 @@ const Home = () => {
     const randomIndex = Math.floor(Math.random() * projectKeys.length)
     setOfferProject(ProjectData[projectKeys[randomIndex]])
   }, [])
+
+  const projectsReveal = useReveal<HTMLElement>()
+  const calculatorReveal = useReveal<HTMLElement>()
+  const companyReveal = useReveal<HTMLElement>()
+  const offerReveal = useReveal<HTMLElement>()
+  const contactsReveal = useReveal<HTMLElement>()
 
   return (
     <>
@@ -117,8 +124,8 @@ const Home = () => {
       </section>
 
       <div className={styles['main']}>
-      <section id="projects" className={styles['projects-section']}>
-        <div className={styles['section-heading']}>
+      <section id="projects" ref={projectsReveal.ref} className={styles['projects-section']}>
+        <div className={`${styles['section-heading']} reveal ${projectsReveal.revealed ? 'revealed' : ''}`}>
           <h1 className={styles.heading}>Проекты</h1>
           <span>
             {projectKeys.length} {pluralize(projectKeys.length, 'жилой комплекс', 'жилых комплекса', 'жилых комплексов')} в
@@ -126,8 +133,13 @@ const Home = () => {
           </span>
         </div>
         <div className={styles['projects-grid']}>
-          {Object.values(ProjectData).map((project) => (
-            <Link href={project.link} key={project.link} className={styles['projects-grid_item']}>
+          {Object.values(ProjectData).map((project, i) => (
+            <Link
+              href={project.link}
+              key={project.link}
+              className={`${styles['projects-grid_item']} reveal ${projectsReveal.revealed ? 'revealed' : ''}`}
+              style={{ transitionDelay: projectsReveal.revealed ? `${i * 70}ms` : '0ms' }}
+            >
               <ProjectCardComponent
                 cover={project.cover}
                 title={project.name}
@@ -140,7 +152,11 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="calculator" className={styles['calculator-section']}>
+      <section
+        id="calculator"
+        ref={calculatorReveal.ref}
+        className={`${styles['calculator-section']} reveal ${calculatorReveal.revealed ? 'revealed' : ''}`}
+      >
         <h1 className={styles.heading}>Калькулятор</h1>
         <p className={styles.disclaimer}>
           Расчёт является предварительным и носит информационный характер. Не является публичной офертой и не
@@ -149,7 +165,11 @@ const Home = () => {
         <CalculatorComponent />
       </section>
 
-      <section id="company" className={styles['company-section']}>
+      <section
+        id="company"
+        ref={companyReveal.ref}
+        className={`${styles['company-section']} reveal ${companyReveal.revealed ? 'revealed' : ''}`}
+      >
         <div className={styles['company-section_content']}>
           <div className={styles['company-plaque']}>
             <div className={styles['company-plaque_ornament']} />
@@ -198,12 +218,19 @@ const Home = () => {
         </div>
       </section>
 
-      <section className={styles['offer-section']}>
+      <section
+        ref={offerReveal.ref}
+        className={`${styles['offer-section']} reveal ${offerReveal.revealed ? 'revealed' : ''}`}
+      >
         <h2>Может вас заинтересовать</h2>
         <ProjectOfferComponent info={offerProject} />
       </section>
 
-      <section id="contacts" className={styles['contacts-section']}>
+      <section
+        id="contacts"
+        ref={contactsReveal.ref}
+        className={`${styles['contacts-section']} reveal ${contactsReveal.revealed ? 'revealed' : ''}`}
+      >
         <h1 className={styles.heading}>Контакты</h1>
         <div className={styles['contacts-grid']}>
           <a
