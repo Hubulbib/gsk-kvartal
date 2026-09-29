@@ -9,6 +9,7 @@ import Link from 'next/link'
 import CalculatorComponent from 'kvartal/components/calculator/calculator.component'
 import { useEffect, useState } from 'react'
 import { useReveal } from 'kvartal/hooks/use-reveal'
+import WhatsappIcon from 'kvartal/components/icons/whatsapp-icon'
 
 const projectKeys = Object.keys(ProjectData)
 
@@ -248,7 +249,7 @@ const Home = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image src="/whatsapp-orig.svg" alt="" width={20} height={20} />
+            <WhatsappIcon size={20} color="#123524" />
             +7 931 777 03 27
           </a>
           <a
@@ -257,7 +258,7 @@ const Home = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image src="/whatsapp-orig.svg" alt="" width={20} height={20} />
+            <WhatsappIcon size={20} color="#c8f24e" />
             +7 988 443 10 48
           </a>
           <div className={styles['contact-socials']}>

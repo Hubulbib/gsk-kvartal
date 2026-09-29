@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import NavBarComponent from 'kvartal/components/navbar/navbar.component'
 import FooterComponent from 'kvartal/components/footer/footer.component'
-import Image from 'next/image'
+import WhatsappIcon from 'kvartal/components/icons/whatsapp-icon'
 
 import 'rc-slider/assets/index.css'
 
@@ -48,8 +48,14 @@ export default function RootLayout({
         <NavBarComponent />
         {children}
         <FooterComponent />
-        <a href="https://wa.me/79317770327" target="_blank">
-          <Image className="action-whatsapp" src={'/whatsapp-orig.svg'} alt="" width={50} height={50} />
+        <a
+          className="action-whatsapp"
+          href="https://wa.me/79317770327"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Написать в WhatsApp"
+        >
+          <WhatsappIcon size={30} color="#123524" />
         </a>
       </body>
     </html>
