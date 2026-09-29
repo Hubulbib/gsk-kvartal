@@ -11,6 +11,14 @@ import { useEffect, useState } from 'react'
 
 const projectKeys = Object.keys(ProjectData)
 
+const pluralize = (n: number, one: string, few: string, many: string) => {
+  const mod10 = n % 10
+  const mod100 = n % 100
+  if (mod10 === 1 && mod100 !== 11) return one
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return few
+  return many
+}
+
 const Home = () => {
   const [heroSlide, setHeroSlide] = useState<'brand' | 'press'>('brand')
   const [offerProject, setOfferProject] = useState(ProjectData[projectKeys[0]])
@@ -112,7 +120,10 @@ const Home = () => {
       <section id="projects" className={styles['projects-section']}>
         <div className={styles['section-heading']}>
           <h1 className={styles.heading}>Проекты</h1>
-          <span>{Object.keys(ProjectData).length} жилых комплекса в Дагестане, выбирайте свой</span>
+          <span>
+            {projectKeys.length} {pluralize(projectKeys.length, 'жилой комплекс', 'жилых комплекса', 'жилых комплексов')} в
+            Дагестане, выбирайте свой
+          </span>
         </div>
         <div className={styles['projects-grid']}>
           {Object.values(ProjectData).map((project) => (
