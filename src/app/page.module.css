@@ -7,8 +7,12 @@
 /* HERO */
 .hero-section {
   position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
   margin-top: 0;
-  padding-bottom: 80px;
+  padding: 0 18px 80px;
+  box-sizing: border-box;
 }
 
 .hero-card {
