@@ -31,7 +31,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div className={styles['main']}>
+    <>
       <section className={styles['hero-section']}>
         <div className={styles['hero-card']}>
           <div className={styles['hero-ornament']} />
@@ -108,6 +108,7 @@ const Home = () => {
         </div>
       </section>
 
+      <div className={styles['main']}>
       <section id="projects" className={styles['projects-section']}>
         <div className={styles['section-heading']}>
           <h1 className={styles.heading}>Проекты</h1>
@@ -234,7 +235,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
 
